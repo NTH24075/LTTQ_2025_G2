@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LTTQ_G2_2025
+namespace LTTQ_G2_2025.GUI
 {
-    public partial class Form1 : Form
+    public partial class fManagerAMinGUI : Form
     {
-        public Form1()
+        public fManagerAMinGUI()
         {
             InitializeComponent();
         }

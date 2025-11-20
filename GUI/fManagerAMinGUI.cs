@@ -16,5 +16,42 @@ namespace LTTQ_G2_2025.GUI
         {
             InitializeComponent();
         }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btResetPass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btAddTeacher_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -52,7 +52,26 @@
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\AccountRoleDTO.cs" />
+    <Compile Include="DTO\AdminDTO.cs" />
+    <Compile Include="DTO\AnnouncementDTO.cs" />
+    <Compile Include="DTO\ClassDTO.cs" />
+    <Compile Include="DTO\CouncilDTO.cs" />
+    <Compile Include="DTO\CouncilMemberDTO.cs" />
+    <Compile Include="DTO\DegreeDTO.cs" />
+    <Compile Include="DTO\DocumentDTO.cs" />
+    <Compile Include="DTO\EvaluationDTO.cs" />
+    <Compile Include="DTO\FacultyDTO.cs" />
+    <Compile Include="DTO\MilestoneDTO.cs" />
+    <Compile Include="DTO\ProgressReportDTO.cs" />
+    <Compile Include="DTO\ProjectDTO.cs" />
+    <Compile Include="DTO\QuestionAndAnswerDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\SemesterDTO.cs" />
+    <Compile Include="DTO\StageDTO.cs" />
+    <Compile Include="DTO\StudentAnnouncementDTO.cs" />
+    <Compile Include="DTO\StudentDTO.cs" />
+    <Compile Include="DTO\TeacherDTO.cs" />
+    <Compile Include="DTO\TeamDTO.cs" />
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +84,18 @@
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fThongTinTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fThongTinTaiKhoan.Designer.cs">
+      <DependentUpon>fThongTinTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fThongTinTaiKhoan_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fThongTinTaiKhoan_Admin.Designer.cs">
+      <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fLogin.resx">
@@ -72,6 +103,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fThongTinTaiKhoan.resx">
+      <DependentUpon>fThongTinTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fThongTinTaiKhoan_Admin.resx">
+      <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -95,6 +133,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="GUI\Resource\Logo-Dai-Hoc-Giao-Thong-Van-Tai-UTC.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

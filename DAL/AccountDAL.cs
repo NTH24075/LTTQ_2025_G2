@@ -53,7 +53,6 @@ namespace LTTQ_G2_2025.DAL
                     row["email"].ToString()
                 );
 
-                // Lấy danh sách roles của account
                 account.Roles = GetRolesByAccountId(account.AccountId);
 
                 return account;

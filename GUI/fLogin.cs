@@ -29,6 +29,7 @@ namespace LTTQ_G2_2025
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             //fManagerAMinGUI f = new fManagerAMinGUI();
             //this.Hide();
             //f.ShowDialog();
@@ -69,11 +70,10 @@ namespace LTTQ_G2_2025
 
                     case "user":
                     default:
-                        //FormUser userForm = new FormUser(account);
-                        //userForm.ShowDialog();
-                        //break;
-                        fManagerAMinGUI s = new fManagerAMinGUI();
-                        s.ShowDialog();
+                        long currentAccountId = account.AccountId;
+                        
+                        fStudentList f = new fStudentList(currentAccountId);
+                        f.ShowDialog();
                         break;
                 }
 

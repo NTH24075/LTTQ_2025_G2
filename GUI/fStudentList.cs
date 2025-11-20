@@ -2,13 +2,10 @@
 using LTTQ_G2_2025.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LTTQ_G2_2025.GUI
@@ -16,24 +13,42 @@ namespace LTTQ_G2_2025.GUI
     public partial class fStudentList : Form
     {
         private long _accountId;
-        private string _imageFolder = Path.Combine(Application.StartupPath, "Images", "Students");
+        private string _imageFolder;          // KHÔNG khởi tạo ở đây nữa
         private List<StudentDTO> _teamMembers;
 
-        public fStudentList(long accountId)
+        // ✅ Constructor mặc định – dùng cho Designer
+        public fStudentList()
         {
             InitializeComponent();
+
+            if (!DesignMode)
+            {
+                _imageFolder = Path.Combine(Application.StartupPath, "Images", "Students");
+                picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+        }
+
+        // ✅ Constructor dùng khi chạy chương trình
+        public fStudentList(long accountId) : this()   // gọi lại ctor trên
+        {
             _accountId = accountId;
         }
+
         private void fStudentList_Load(object sender, EventArgs e)
         {
-            LoadTeamMembers();
+            // Không load dữ liệu khi đang mở Designer
+            if (!DesignMode)
+            {
+                LoadTeamMembers();
+            }
         }
 
         private void LoadTeamMembers()
         {
-            var data = StudentBLL.Instance.GetTeamMembersByAccountId(_accountId);
+            // Lấy dữ liệu sinh viên cùng nhóm
+            _teamMembers = StudentBLL.Instance.GetTeamMembersByAccountId(_accountId);
 
-            var view = data.Select(s => new
+            var view = _teamMembers.Select(s => new
             {
                 StudentName = s.StudentName,
                 StudentCode = s.StudentCode,
@@ -61,26 +76,40 @@ namespace LTTQ_G2_2025.GUI
 
         private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _teamMembers = StudentBLL.Instance.GetTeamMembersByAccountId(_accountId);
-
             if (e.RowIndex < 0) return;
+
+            // Đảm bảo đã có danh sách teamMembers
+            if (_teamMembers == null || _teamMembers.Count == 0)
+            {
+                _teamMembers = StudentBLL.Instance.GetTeamMembersByAccountId(_accountId);
+            }
+
+            if (e.RowIndex >= _teamMembers.Count) return;
+
             var student = _teamMembers[e.RowIndex];
 
             // Lấy tên file ảnh từ DB
             string fileName = student.Img;
-
-            // Ghép thành đường dẫn đầy đủ
-            string imgPath = Path.Combine(_imageFolder, fileName);
+            string imgPath = Path.Combine(_imageFolder, fileName ?? "");
 
             // Load ảnh
-            if (File.Exists(imgPath))
+            if (!string.IsNullOrEmpty(fileName) && File.Exists(imgPath))
             {
+                // Optional: giải phóng ảnh cũ để tránh khóa file
+                if (picAvatar.Image != null)
+                {
+                    picAvatar.Image.Dispose();
+                    picAvatar.Image = null;
+                }
+
                 picAvatar.Image = Image.FromFile(imgPath);
             }
             else
             {
-                picAvatar.Image = null;  // hoặc ảnh mặc định
+                picAvatar.Image = null;  // hoặc gán ảnh mặc định
             }
+
+            // Đổ dữ liệu ra TextBox
             DataGridViewRow row = dgvStudent.Rows[e.RowIndex];
 
             txtName.Text = row.Cells["StudentName"].Value?.ToString();

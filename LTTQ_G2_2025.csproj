@@ -48,10 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\RoleBLL.cs" />
+    <Compile Include="BLL\StudentBLL.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\RoleDAL.cs" />
+    <Compile Include="DAL\StudentDAL.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
-    <Compile Include="DTO\AccountRoleDTO.cs" />
+    <Compile Include="DTO\AccountEditDTO.cs" />
+    <Compile Include="DTO\AccountViewDTO.cs" />
     <Compile Include="DTO\AdminDTO.cs" />
     <Compile Include="DTO\AnnouncementDTO.cs" />
     <Compile Include="DTO\ClassDTO.cs" />
@@ -72,6 +77,12 @@
     <Compile Include="DTO\StudentDTO.cs" />
     <Compile Include="DTO\TeacherDTO.cs" />
     <Compile Include="DTO\TeamDTO.cs" />
+    <Compile Include="GUI\fDetailAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fDetailAccount.Designer.cs">
+      <DependentUpon>fDetailAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +109,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\fDetailAccount.resx">
+      <DependentUpon>fDetailAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>

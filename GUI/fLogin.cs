@@ -53,26 +53,26 @@ namespace LTTQ_G2_2025
                 //    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Phân quyền dựa vào role cao nhất
-                string primaryRole = account.GetPrimaryRole();
+                int primaryRole = account.roleid;
 
-                switch (primaryRole.ToLower())
+                switch (primaryRole)
                 {
-                    case "admin":
-                        fManagerAMinGUI adminForm = new fManagerAMinGUI();
+                    case 1:
+                        cboRoleDetail adminForm = new cboRoleDetail();
                         adminForm.ShowDialog();
                         break;
 
-                    case "manager":
+                    case 2:
                         //FormManager managerForm = new FormManager(account);
                         //managerForm.ShowDialog();
                         //break;
 
-                    case "user":
+                    case 3:
                     default:
                         //FormUser userForm = new FormUser(account);
                         //userForm.ShowDialog();
                         //break;
-                        fManagerAMinGUI s = new fManagerAMinGUI();
+                        cboRoleDetail s = new cboRoleDetail();
                         s.ShowDialog();
                         break;
                 }

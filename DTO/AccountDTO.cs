@@ -9,26 +9,22 @@ namespace LTTQ_G2_2025.DTO
     public class AccountDTO
     {
         public AccountDTO() { }
-        public List<string> Roles { get; set; }
+        public string Roles { get; set; }
         public AccountDTO(long accountId, string password, string email)
         {
             AccountId = accountId;
             Password = password;
             Email = email;
         }
-        public bool HasRole(string roleName)
+        public AccountDTO(long accountId, string email)
         {
-            return Roles.Any(r => r.Equals(roleName, StringComparison.OrdinalIgnoreCase));
+            AccountId = accountId;
+            Email = email;
         }
-        public string GetPrimaryRole()
-        {
-            if (HasRole("Admin")) return "Admin";
-            if (HasRole("Manager")) return "Manager";
-            if (HasRole("User")) return "User";
-            return "User"; // Default
-        }
+        
         public long AccountId { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public int roleid { get; set; }
     }
 }

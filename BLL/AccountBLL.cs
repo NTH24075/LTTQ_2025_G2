@@ -17,7 +17,14 @@ namespace LTTQ_G2_2025.BLL
         {
             _accountDAL = new AccountDAL();
         }
-
+        public bool UpdatePassword(long accountId, string newPassword)
+        {
+            return _accountDAL.UpdatePassword(accountId, newPassword);
+        }
+        public List<AccountViewDTO> GetAllAccounts()
+        {
+            return _accountDAL.GetAllAccounts();
+        }
         public bool CheckAccountInDatabase(AccountDTO user)
         {
             return _accountDAL.CheckAccountInDatabase(user);
@@ -39,21 +46,28 @@ namespace LTTQ_G2_2025.BLL
         }
 
         // Lấy danh sách roles của account
-        public List<string> GetRolesByAccountId(long accountId)
-        {
-            return _accountDAL.GetRolesByAccountId(accountId);
-        }
+       
 
         // Thêm role cho account
-        public bool AssignRoleToAccount(long accountId, int roleId)
-        {
-            return _accountDAL.AddRoleToAccount(accountId, roleId);
-        }
+        
 
         // Xóa role khỏi account
-        public bool RemoveRoleFromAccount(long accountId, int roleId)
+       
+        public List<AccountViewDTO> SearchAccounts(string emailKeyword, string roleName)
         {
-            return _accountDAL.RemoveRoleFromAccount(accountId, roleId);
+            return _accountDAL.SearchAccounts(emailKeyword, roleName);
+        }
+        public List<AccountViewDTO> GetAllAccountsForView()
+        {
+            return _accountDAL.GetAccountListForView();
+        }
+        public bool UpdateAccount(long accountId, string newEmail, string newPassword, int newRoleId)
+        {
+            return _accountDAL.UpdateAccount(accountId, newEmail, newPassword, newRoleId);
+        }
+        public AccountEditDTO GetAccountDetailById(long accountId)
+        {
+            return _accountDAL.GetAccountDetailById(accountId);
         }
     }
 }

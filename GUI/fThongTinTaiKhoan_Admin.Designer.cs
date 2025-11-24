@@ -38,14 +38,18 @@
             this.txtNewPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtConfirmPas = new System.Windows.Forms.TextBox();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btAcp = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,7 +108,7 @@
             // 
             this.panel4.Controls.Add(this.txtNewPass);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(12, 165);
+            this.panel4.Location = new System.Drawing.Point(12, 233);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(371, 66);
             this.panel4.TabIndex = 5;
@@ -128,19 +132,19 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.txtConfirmPas);
+            this.panel5.Controls.Add(this.txtConfirmPass);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(12, 248);
+            this.panel5.Location = new System.Drawing.Point(12, 305);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(371, 66);
             this.panel5.TabIndex = 6;
             // 
-            // txtConfirmPas
+            // txtConfirmPass
             // 
-            this.txtConfirmPas.Location = new System.Drawing.Point(178, 26);
-            this.txtConfirmPas.Name = "txtConfirmPas";
-            this.txtConfirmPas.Size = new System.Drawing.Size(190, 22);
-            this.txtConfirmPas.TabIndex = 2;
+            this.txtConfirmPass.Location = new System.Drawing.Point(178, 26);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.Size = new System.Drawing.Size(190, 22);
+            this.txtConfirmPass.TabIndex = 2;
             // 
             // label5
             // 
@@ -154,29 +158,60 @@
             // 
             // btAcp
             // 
+            this.btAcp.AutoSize = true;
             this.btAcp.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAcp.Location = new System.Drawing.Point(143, 361);
+            this.btAcp.Location = new System.Drawing.Point(140, 399);
             this.btAcp.Name = "btAcp";
             this.btAcp.Size = new System.Drawing.Size(99, 37);
             this.btAcp.TabIndex = 7;
             this.btAcp.Text = "Cập nhật";
             this.btAcp.UseVisualStyleBackColor = true;
+            this.btAcp.Click += new System.EventHandler(this.btAcp_Click);
             // 
             // btCancel
             // 
             this.btCancel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancel.Location = new System.Drawing.Point(264, 361);
+            this.btCancel.Location = new System.Drawing.Point(259, 399);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(99, 37);
             this.btCancel.TabIndex = 8;
             this.btCancel.Text = "Hủy";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cbRole);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(12, 161);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(371, 66);
+            this.panel3.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 24);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Chức năng:";
+            // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(178, 23);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(187, 24);
+            this.cbRole.TabIndex = 2;
             // 
             // fThongTinTaiKhoan_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 434);
+            this.ClientSize = new System.Drawing.Size(398, 472);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btAcp);
             this.Controls.Add(this.panel5);
@@ -185,6 +220,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "fThongTinTaiKhoan_Admin";
             this.Text = "fThongTinTaiKhoan_Admin";
+            this.Load += new System.EventHandler(this.fThongTinTaiKhoan_Admin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -193,7 +229,10 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -209,9 +248,12 @@
         private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtConfirmPas;
+        private System.Windows.Forms.TextBox txtConfirmPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btAcp;
         private System.Windows.Forms.Button btCancel;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.Label label3;
     }
 }

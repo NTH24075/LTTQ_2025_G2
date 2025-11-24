@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace LTTQ_G2_2025.GUI
 {
-    partial class fManagerAMinGUI
+    partial class cboRoleDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,12 @@ namespace LTTQ_G2_2025.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fManagerAMinGUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cboRoleDetail));
             this.tbAdmin = new System.Windows.Forms.TabControl();
             this.tbAccount = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btResetPass = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cbRoleDetail = new System.Windows.Forms.ComboBox();
+            this.txtRoleDetail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtNameDetail = new System.Windows.Forms.TextBox();
@@ -45,16 +44,15 @@ namespace LTTQ_G2_2025.GUI
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtEmailDetail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btUpdateAcc = new System.Windows.Forms.Button();
             this.btDetailAcc = new System.Windows.Forms.Button();
             this.btAddAcc = new System.Windows.Forms.Button();
-            this.btUpdateAcc = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btSearchAcc = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearchAcc = new System.Windows.Forms.TextBox();
-            this.btDeleteAcc = new System.Windows.Forms.Button();
             this.dgvAcc = new System.Windows.Forms.DataGridView();
             this.tbTeacher = new System.Windows.Forms.TabPage();
             this.dgvTeacher = new System.Windows.Forms.DataGridView();
@@ -84,6 +82,25 @@ namespace LTTQ_G2_2025.GUI
             this.btDetailTeacher = new System.Windows.Forms.Button();
             this.btAddTeacher = new System.Windows.Forms.Button();
             this.tbStudent = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel22 = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button12 = new System.Windows.Forms.Button();
@@ -109,31 +126,13 @@ namespace LTTQ_G2_2025.GUI
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tbTeam = new System.Windows.Forms.TabPage();
-            this.tbReport = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btAddTeams = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -145,11 +144,11 @@ namespace LTTQ_G2_2025.GUI
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.btAddTeams = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tbReport = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tbAdmin.SuspendLayout();
             this.tbAccount.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -169,6 +168,13 @@ namespace LTTQ_G2_2025.GUI
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tbStudent.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel22.SuspendLayout();
             this.panel21.SuspendLayout();
             this.tbGrid.SuspendLayout();
@@ -176,13 +182,6 @@ namespace LTTQ_G2_2025.GUI
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tbTeam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -210,9 +209,7 @@ namespace LTTQ_G2_2025.GUI
             this.tbAccount.Controls.Add(this.panel5);
             this.tbAccount.Controls.Add(this.btDetailAcc);
             this.tbAccount.Controls.Add(this.btAddAcc);
-            this.tbAccount.Controls.Add(this.btUpdateAcc);
             this.tbAccount.Controls.Add(this.panel1);
-            this.tbAccount.Controls.Add(this.btDeleteAcc);
             this.tbAccount.Controls.Add(this.dgvAcc);
             this.tbAccount.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tbAccount.Location = new System.Drawing.Point(4, 25);
@@ -226,42 +223,30 @@ namespace LTTQ_G2_2025.GUI
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.btResetPass);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.btUpdateAcc);
             this.panel5.Location = new System.Drawing.Point(665, 196);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(415, 285);
             this.panel5.TabIndex = 8;
             // 
-            // btResetPass
-            // 
-            this.btResetPass.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btResetPass.Location = new System.Drawing.Point(232, 223);
-            this.btResetPass.Name = "btResetPass";
-            this.btResetPass.Size = new System.Drawing.Size(169, 43);
-            this.btResetPass.TabIndex = 5;
-            this.btResetPass.Text = "Đặt lại Mật khẩu";
-            this.btResetPass.UseVisualStyleBackColor = true;
-            this.btResetPass.Click += new System.EventHandler(this.btResetPass_Click);
-            // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.cbRoleDetail);
+            this.panel8.Controls.Add(this.txtRoleDetail);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Location = new System.Drawing.Point(7, 150);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(401, 53);
             this.panel8.TabIndex = 6;
             // 
-            // cbRoleDetail
+            // txtRoleDetail
             // 
-            this.cbRoleDetail.FormattingEnabled = true;
-            this.cbRoleDetail.Location = new System.Drawing.Point(165, 12);
-            this.cbRoleDetail.Name = "cbRoleDetail";
-            this.cbRoleDetail.Size = new System.Drawing.Size(229, 24);
-            this.cbRoleDetail.TabIndex = 5;
+            this.txtRoleDetail.Location = new System.Drawing.Point(165, 11);
+            this.txtRoleDetail.Name = "txtRoleDetail";
+            this.txtRoleDetail.Size = new System.Drawing.Size(228, 22);
+            this.txtRoleDetail.TabIndex = 4;
             // 
             // label6
             // 
@@ -325,35 +310,37 @@ namespace LTTQ_G2_2025.GUI
             this.label4.TabIndex = 2;
             this.label4.Text = "Email:";
             // 
+            // btUpdateAcc
+            // 
+            this.btUpdateAcc.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btUpdateAcc.Location = new System.Drawing.Point(10, 219);
+            this.btUpdateAcc.Name = "btUpdateAcc";
+            this.btUpdateAcc.Size = new System.Drawing.Size(391, 45);
+            this.btUpdateAcc.TabIndex = 5;
+            this.btUpdateAcc.Text = "Sửa thông tin đăng nhập";
+            this.btUpdateAcc.UseVisualStyleBackColor = true;
+            this.btUpdateAcc.Click += new System.EventHandler(this.btUpdateAcc_Click);
+            // 
             // btDetailAcc
             // 
             this.btDetailAcc.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDetailAcc.Location = new System.Drawing.Point(8, 6);
+            this.btDetailAcc.Location = new System.Drawing.Point(22, 21);
             this.btDetailAcc.Name = "btDetailAcc";
             this.btDetailAcc.Size = new System.Drawing.Size(305, 45);
             this.btDetailAcc.TabIndex = 7;
             this.btDetailAcc.Text = "Chi tiết";
             this.btDetailAcc.UseVisualStyleBackColor = true;
+            this.btDetailAcc.Click += new System.EventHandler(this.btDetailAcc_Click);
             // 
             // btAddAcc
             // 
             this.btAddAcc.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddAcc.Location = new System.Drawing.Point(328, 6);
+            this.btAddAcc.Location = new System.Drawing.Point(333, 21);
             this.btAddAcc.Name = "btAddAcc";
             this.btAddAcc.Size = new System.Drawing.Size(305, 45);
             this.btAddAcc.TabIndex = 6;
             this.btAddAcc.Text = "Thêm tài khoản";
             this.btAddAcc.UseVisualStyleBackColor = true;
-            // 
-            // btUpdateAcc
-            // 
-            this.btUpdateAcc.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdateAcc.Location = new System.Drawing.Point(6, 59);
-            this.btUpdateAcc.Name = "btUpdateAcc";
-            this.btUpdateAcc.Size = new System.Drawing.Size(305, 45);
-            this.btUpdateAcc.TabIndex = 5;
-            this.btUpdateAcc.Text = "Sửa thông tin";
-            this.btUpdateAcc.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -377,6 +364,7 @@ namespace LTTQ_G2_2025.GUI
             this.btSearchAcc.TabIndex = 4;
             this.btSearchAcc.Text = "Tìm Kiếm";
             this.btSearchAcc.UseVisualStyleBackColor = true;
+            this.btSearchAcc.Click += new System.EventHandler(this.btSearchAcc_Click);
             // 
             // label3
             // 
@@ -413,26 +401,16 @@ namespace LTTQ_G2_2025.GUI
             this.txtSearchAcc.Size = new System.Drawing.Size(178, 22);
             this.txtSearchAcc.TabIndex = 0;
             // 
-            // btDeleteAcc
-            // 
-            this.btDeleteAcc.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDeleteAcc.Location = new System.Drawing.Point(328, 61);
-            this.btDeleteAcc.Name = "btDeleteAcc";
-            this.btDeleteAcc.Size = new System.Drawing.Size(305, 45);
-            this.btDeleteAcc.TabIndex = 3;
-            this.btDeleteAcc.Text = "Xóa tài khoản";
-            this.btDeleteAcc.UseVisualStyleBackColor = true;
-            this.btDeleteAcc.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dgvAcc
             // 
             this.dgvAcc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAcc.Location = new System.Drawing.Point(8, 117);
+            this.dgvAcc.Location = new System.Drawing.Point(8, 92);
             this.dgvAcc.Name = "dgvAcc";
             this.dgvAcc.RowHeadersWidth = 51;
             this.dgvAcc.RowTemplate.Height = 24;
-            this.dgvAcc.Size = new System.Drawing.Size(647, 364);
+            this.dgvAcc.Size = new System.Drawing.Size(647, 389);
             this.dgvAcc.TabIndex = 0;
+            this.dgvAcc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcc_CellClick);
             // 
             // tbTeacher
             // 
@@ -713,6 +691,186 @@ namespace LTTQ_G2_2025.GUI
             this.tbStudent.Text = "Sinh Viên";
             this.tbStudent.UseVisualStyleBackColor = true;
             // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.comboBox1);
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.panel11);
+            this.panel9.Controls.Add(this.panel12);
+            this.panel9.Controls.Add(this.panel13);
+            this.panel9.Controls.Add(this.panel23);
+            this.panel9.Location = new System.Drawing.Point(634, 123);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(454, 365);
+            this.panel9.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(89, 303);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(235, 288);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 49);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Thay đổi thông tin ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.textBox1);
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Location = new System.Drawing.Point(10, 223);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(428, 47);
+            this.panel10.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(175, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 22);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Khoa";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.textBox2);
+            this.panel11.Controls.Add(this.label8);
+            this.panel11.Location = new System.Drawing.Point(10, 170);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(428, 47);
+            this.panel11.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(175, 15);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(250, 22);
+            this.textBox2.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(14, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 19);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Số điện thoại";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.textBox3);
+            this.panel12.Controls.Add(this.label9);
+            this.panel12.Location = new System.Drawing.Point(9, 117);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(428, 47);
+            this.panel12.TabIndex = 2;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(175, 15);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(250, 22);
+            this.textBox3.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 19);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Email";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.textBox5);
+            this.panel13.Controls.Add(this.label10);
+            this.panel13.Location = new System.Drawing.Point(10, 64);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(428, 47);
+            this.panel13.TabIndex = 1;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(175, 15);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(250, 22);
+            this.textBox5.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(14, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 19);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Lớp";
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.textBox6);
+            this.panel23.Controls.Add(this.label11);
+            this.panel23.Location = new System.Drawing.Point(9, 11);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(428, 47);
+            this.panel23.TabIndex = 0;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(175, 15);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(250, 22);
+            this.textBox6.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(14, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(88, 19);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Họ và Tên";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(9, 123);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(608, 362);
+            this.dataGridView1.TabIndex = 4;
+            // 
             // panel22
             // 
             this.panel22.Controls.Add(this.textBox4);
@@ -958,216 +1116,6 @@ namespace LTTQ_G2_2025.GUI
             this.tbTeam.Text = "Teams";
             this.tbTeam.UseVisualStyleBackColor = true;
             // 
-            // tbReport
-            // 
-            this.tbReport.Location = new System.Drawing.Point(4, 25);
-            this.tbReport.Name = "tbReport";
-            this.tbReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tbReport.Size = new System.Drawing.Size(1094, 503);
-            this.tbReport.TabIndex = 6;
-            this.tbReport.Text = "Báo cáo";
-            this.tbReport.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(428, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "UTC-Trường Đại Học Giao Thông Vận Tải";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(608, 362);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.comboBox1);
-            this.panel9.Controls.Add(this.button1);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.panel11);
-            this.panel9.Controls.Add(this.panel12);
-            this.panel9.Controls.Add(this.panel13);
-            this.panel9.Controls.Add(this.panel23);
-            this.panel9.Location = new System.Drawing.Point(634, 123);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(454, 365);
-            this.panel9.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(235, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 49);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Thay đổi thông tin ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.textBox1);
-            this.panel10.Controls.Add(this.label7);
-            this.panel10.Location = new System.Drawing.Point(10, 223);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(428, 47);
-            this.panel10.TabIndex = 4;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(175, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Khoa";
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.textBox2);
-            this.panel11.Controls.Add(this.label8);
-            this.panel11.Location = new System.Drawing.Point(10, 170);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(428, 47);
-            this.panel11.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(175, 15);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 22);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 19);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Số điện thoại";
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.textBox3);
-            this.panel12.Controls.Add(this.label9);
-            this.panel12.Location = new System.Drawing.Point(9, 117);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(428, 47);
-            this.panel12.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(175, 15);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 22);
-            this.textBox3.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 15);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 19);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Email";
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.textBox5);
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Location = new System.Drawing.Point(10, 64);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(428, 47);
-            this.panel13.TabIndex = 1;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(175, 15);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 22);
-            this.textBox5.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(14, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 19);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Lớp";
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.textBox6);
-            this.panel23.Controls.Add(this.label11);
-            this.panel23.Location = new System.Drawing.Point(9, 11);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(428, 47);
-            this.panel23.TabIndex = 0;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(175, 15);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(250, 22);
-            this.textBox6.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 15);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 19);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Họ và Tên";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 303);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1094, 503);
-            this.tabPage1.TabIndex = 7;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // panel24
             // 
             this.panel24.Controls.Add(this.button3);
@@ -1181,6 +1129,26 @@ namespace LTTQ_G2_2025.GUI
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(1090, 499);
             this.panel24.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(667, 55);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(187, 31);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Sửa nhóm";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btAddTeams
+            // 
+            this.btAddTeams.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddTeams.Location = new System.Drawing.Point(876, 55);
+            this.btAddTeams.Name = "btAddTeams";
+            this.btAddTeams.Size = new System.Drawing.Size(187, 31);
+            this.btAddTeams.TabIndex = 5;
+            this.btAddTeams.Text = "Thêm nhóm";
+            this.btAddTeams.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -1208,6 +1176,24 @@ namespace LTTQ_G2_2025.GUI
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(407, 350);
             this.panel25.TabIndex = 3;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(170, 169);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(234, 22);
+            this.textBox11.TabIndex = 9;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(10, 175);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(145, 16);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "Số lượng thành viên: ";
             // 
             // textBox7
             // 
@@ -1309,43 +1295,35 @@ namespace LTTQ_G2_2025.GUI
             this.dateTimePicker4.Size = new System.Drawing.Size(313, 22);
             this.dateTimePicker4.TabIndex = 0;
             // 
-            // btAddTeams
+            // tbReport
             // 
-            this.btAddTeams.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddTeams.Location = new System.Drawing.Point(876, 55);
-            this.btAddTeams.Name = "btAddTeams";
-            this.btAddTeams.Size = new System.Drawing.Size(187, 31);
-            this.btAddTeams.TabIndex = 5;
-            this.btAddTeams.Text = "Thêm nhóm";
-            this.btAddTeams.UseVisualStyleBackColor = true;
+            this.tbReport.Location = new System.Drawing.Point(4, 25);
+            this.tbReport.Name = "tbReport";
+            this.tbReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tbReport.Size = new System.Drawing.Size(1094, 503);
+            this.tbReport.TabIndex = 6;
+            this.tbReport.Text = "Báo cáo";
+            this.tbReport.UseVisualStyleBackColor = true;
             // 
-            // label25
+            // tabPage1
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(10, 175);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(145, 16);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "Số lượng thành viên: ";
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1094, 503);
+            this.tabPage1.TabIndex = 7;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // label1
             // 
-            this.textBox11.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(170, 169);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(234, 22);
-            this.textBox11.TabIndex = 9;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(667, 55);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 31);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Sửa nhóm";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(428, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(403, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "UTC-Trường Đại Học Giao Thông Vận Tải";
             // 
             // pictureBox1
             // 
@@ -1358,17 +1336,29 @@ namespace LTTQ_G2_2025.GUI
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // fManagerAMinGUI
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(981, 58);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 30);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Đăng xuất";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // cboRoleDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 612);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbAdmin);
-            this.Name = "fManagerAMinGUI";
+            this.Name = "cboRoleDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManagerAMinGUI";
+            this.Load += new System.EventHandler(this.fManagerAMinGUI_Load);
             this.tbAdmin.ResumeLayout(false);
             this.tbAccount.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -1399,16 +1389,6 @@ namespace LTTQ_G2_2025.GUI
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tbStudent.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.tbGrid.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tbTeam.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -1421,6 +1401,16 @@ namespace LTTQ_G2_2025.GUI
             this.panel13.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.tbGrid.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tbTeam.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
@@ -1443,7 +1433,6 @@ namespace LTTQ_G2_2025.GUI
         private System.Windows.Forms.PictureBox pictureBox1;
         private Label label1;
         private DataGridView dgvAcc;
-        private Button btDeleteAcc;
         private Panel panel1;
         private Label label2;
         private TextBox txtSearchAcc;
@@ -1465,9 +1454,7 @@ namespace LTTQ_G2_2025.GUI
         private Panel panel5;
         private Panel panel6;
         private Label label4;
-        private Button btResetPass;
         private Panel panel8;
-        private ComboBox cbRoleDetail;
         private Label label6;
         private Panel panel7;
         private TextBox txtNameDetail;
@@ -1550,5 +1537,7 @@ namespace LTTQ_G2_2025.GUI
         private TextBox textBox11;
         private Label label25;
         private Button button3;
+        private TextBox txtRoleDetail;
+        private Button button5;
     }
 }

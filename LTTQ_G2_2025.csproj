@@ -50,9 +50,12 @@
 
   <ItemGroup>
     <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\ProjectBLL.cs" />
     <Compile Include="BLL\StudentBLL.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\ProjectDAL.cs" />
+    <Compile Include="DAL\ShowTeacherDAL.cs" />
     <Compile Include="DAL\StudentDAL.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\AccountRoleDTO.cs" />
@@ -67,10 +70,17 @@
     <Compile Include="DTO\FacultyDTO.cs" />
     <Compile Include="DTO\MilestoneDTO.cs" />
     <Compile Include="DTO\ProgressReportDTO.cs" />
+    <Compile Include="DTO\ProjectDetailDTO.cs" />
     <Compile Include="DTO\ProjectDTO.cs" />
     <Compile Include="DTO\QuestionAndAnswerDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\StudentDTO.cs" />
+    <Compile Include="GUI\fCreateProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fCreateProject.Designer.cs">
+      <DependentUpon>fCreateProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\SemesterDTO.cs" />
     <Compile Include="DTO\StageDTO.cs" />
     <Compile Include="DTO\StudentAnnouncementDTO.cs" />
@@ -90,7 +100,12 @@
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="GUI\fProjectDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fProjectDetail.Designer.cs">
+      <DependentUpon>fProjectDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,12 +129,17 @@
 
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
+    <EmbeddedResource Include="GUI\fCreateProject.resx">
+      <DependentUpon>fCreateProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fProjectDetail.resx">
+      <DependentUpon>fProjectDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fStudentList.resx">
       <DependentUpon>fStudentList.cs</DependentUpon>

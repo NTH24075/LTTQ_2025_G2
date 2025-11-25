@@ -15,9 +15,9 @@ namespace LTTQ_G2_2025.GUI
         private long _accountId;
         private string _imageFolder;          // KHÔNG khởi tạo ở đây nữa
         private List<StudentDTO> _teamMembers;
-
-        // ✅ Constructor mặc định – dùng cho Designer
-        public fStudentList()
+        private readonly long _currentAccountId;
+        private readonly ProjectBLL _projectBll = new ProjectBLL();
+        public fStudentList(long accountId)
         {
             InitializeComponent();
 
@@ -32,6 +32,7 @@ namespace LTTQ_G2_2025.GUI
         public fStudentList(long accountId) : this()   // gọi lại ctor trên
         {
             _accountId = accountId;
+            _currentAccountId = accountId;
         }
 
         private void fStudentList_Load(object sender, EventArgs e)
@@ -93,23 +94,8 @@ namespace LTTQ_G2_2025.GUI
             string imgPath = Path.Combine(_imageFolder, fileName ?? "");
 
             // Load ảnh
-            if (!string.IsNullOrEmpty(fileName) && File.Exists(imgPath))
-            {
-                // Optional: giải phóng ảnh cũ để tránh khóa file
-                if (picAvatar.Image != null)
-                {
-                    picAvatar.Image.Dispose();
-                    picAvatar.Image = null;
-                }
+            SetPictureNoLock(picAvatar, imgPath);
 
-                picAvatar.Image = Image.FromFile(imgPath);
-            }
-            else
-            {
-                picAvatar.Image = null;  // hoặc gán ảnh mặc định
-            }
-
-            // Đổ dữ liệu ra TextBox
             DataGridViewRow row = dgvStudent.Rows[e.RowIndex];
 
             txtName.Text = row.Cells["StudentName"].Value?.ToString();
@@ -120,10 +106,74 @@ namespace LTTQ_G2_2025.GUI
             txtGender.Text = row.Cells["StudentGender"].Value?.ToString();
             txtAddress.Text = row.Cells["StudentAddress"].Value?.ToString();
         }
+        private void SetPictureNoLock(PictureBox pb, string path)
+        {
+            // Giải phóng ảnh cũ nếu đang giữ
+            if (pb.Image != null)
+            {
+                var old = pb.Image;
+                pb.Image = null;
+                old.Dispose();
+            }
+
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+            {
+                pb.Image = null; // hoặc ảnh mặc định
+                return;
+            }
+
+            // Load mà không khóa file gốc:
+            // Mở stream -> tạo Bitmap clone -> đóng stream
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var img = Image.FromStream(fs))
+            {
+                pb.Image = new Bitmap(img);
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ViewProject_Click(object sender, EventArgs e)
+        {
+            // 1) Thử lấy Project của SV
+            ProjectDetailDTO p = _projectBll.GetProjectDetail(_currentAccountId);
+
+            if (p == null)
+            {
+                // 2) Chưa có Project (có thể SV chưa có team hoặc team chưa gán project)
+                long? teamId = _projectBll.GetTeamIdOfStudent(_currentAccountId);
+                if (teamId == null)
+                {
+                    MessageBox.Show("Bạn chưa thuộc nhóm (team). Hãy liên hệ GV/Quản trị để được thêm vào nhóm trước khi tạo đề tài.",
+                                    "Chưa có nhóm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 3) Hỏi có muốn tạo Project mới
+                var ask = MessageBox.Show("Bạn chưa có đồ án. Bạn có muốn tạo đề tài (Project) mới cho nhóm không?",
+                                          "Tạo Project", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (ask == DialogResult.Yes)
+                {
+                    // Mở form tạo Project (điền minimal info)
+                    using (var f = new fCreateProject((long)teamId, _projectBll))
+                    {
+                        if (f.ShowDialog() == DialogResult.OK)
+                        {
+                            MessageBox.Show("Tạo đề tài thành công.");
+                        }
+                    }
+                }
+                return;
+            }
+
+            // 4) Đã có Project → mở form xem chi tiết
+            using (var f = new fProjectDetail(p))
+            {
+                f.ShowDialog();
+            }
         }
     }
 }

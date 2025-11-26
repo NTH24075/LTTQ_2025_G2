@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\DiemBLL.cs" />
     <Compile Include="BLL\TeacherBLL.cs" />
     <Compile Include="BLL\TienDoBLL.cs" />
+    <Compile Include="DAL\DiemDAL.cs" />
     <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="DTO\DocumentDTO.cs" />
     <Compile Include="DTO\EvaluationDTO.cs" />
     <Compile Include="DTO\FacultyDTO.cs" />
+    <Compile Include="DTO\InforStage.cs" />
     <Compile Include="DTO\MilestoneDTO.cs" />
     <Compile Include="DTO\ProgressReportDTO.cs" />
     <Compile Include="DTO\ProjectDTO.cs" />
@@ -88,11 +91,11 @@
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fShowProgess.cs">
+    <Compile Include="GUI\fMilestone_Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fShowProgess.Designer.cs">
-      <DependentUpon>fShowProgess.cs</DependentUpon>
+    <Compile Include="GUI\fMilestone_Teacher.Designer.cs">
+      <DependentUpon>fMilestone_Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fTeacherGui.cs">
       <SubType>Form</SubType>
@@ -124,6 +127,12 @@
     <Compile Include="GUI\fProjectDetail_Teacher.Designer.cs">
       <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fShowScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fShowScore.Designer.cs">
+      <DependentUpon>fShowScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fLogin.resx">
@@ -132,11 +141,11 @@
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fMilestone_Teacher.resx">
+      <DependentUpon>fMilestone_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fProjectDetail_Teacher.resx">
       <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fShowProgess.resx">
-      <DependentUpon>fShowProgess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fTeacherGui.resx">
       <DependentUpon>fTeacherGui.cs</DependentUpon>
@@ -149,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fThongTinTaiKhoan_Admin.resx">
       <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fShowScore.resx">
+      <DependentUpon>fShowScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

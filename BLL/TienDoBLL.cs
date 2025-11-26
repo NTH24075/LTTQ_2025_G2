@@ -1,6 +1,9 @@
-﻿using System;
+﻿using LTTQ_G2_2025.DAL;
+using LTTQ_G2_2025.DTO;
+using System;
+using System.Collections.Generic;
 using System.Data;
-using LTTQ_G2_2025.DAL;
+using System.Windows.Forms;
 
 namespace LTTQ_G2_2025.BLL
 {
@@ -107,22 +110,33 @@ namespace LTTQ_G2_2025.BLL
         /// <summary>
         /// Lưu điểm (thêm mới hoặc cập nhật) cho 1 sinh viên ở 1 milestone
         /// </summary>
-        public bool SaveEvaluation(long milestoneId, long studentId, decimal score, string comment)
-        {
-            int affected = tienDoDAL.InsertOrUpdateEvaluation(
-                milestoneId,
-                studentId,
-                score,
-                comment ?? string.Empty
-            );
-
-            return affected > 0;
-        }
 
         #endregion
         public DataTable GetStageCompletionStatus(long projectId)
         {
             return tienDoDAL.GetStageCompletionStatus(projectId, teacherId);
+        }
+        public List<InforStage> GetStagesByProject(long projectId)
+        {
+            return tienDoDAL.GetStagesByProjectId(projectId);
+        }
+
+        public bool SaveEvaluation(long projectId, long milestoneId, decimal score, string comment)
+        {
+            return tienDoDAL.SaveEvaluationForMilestone(projectId, milestoneId, score, comment);
+        }
+        public DataRow GetProjectHeader(long projectId)
+        {
+            return tienDoDAL.GetProjectHeader(projectId, teacherId);
+        }
+
+        public DataRow GetMilestoneEvaluation(long projectId, long milestoneId)
+        {
+            return tienDoDAL.GetMilestoneEvaluation(projectId, milestoneId);
+        }
+        public bool UpdateMilestoneProgress(long milestoneId, int weightPercent, string milestoneDescription)
+        {
+            return tienDoDAL.UpdateMilestoneProgress(milestoneId, weightPercent, milestoneDescription);
         }
     }
 

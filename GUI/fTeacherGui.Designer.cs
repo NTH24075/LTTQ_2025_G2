@@ -45,7 +45,7 @@
             this.dgvDanhSachDoAn = new System.Windows.Forms.DataGridView();
             this.tabTienDo = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnChamDiem_TienDo = new System.Windows.Forms.Button();
+            this.btnChiTietDoAn = new System.Windows.Forms.Button();
             this.btnKiemTra_TienDo = new System.Windows.Forms.Button();
             this.btnXemNhom_TienDo = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -55,9 +55,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dgvTienDo = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvDanhSachDoAn_Diem = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTenDoAn_Diem = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboTrangThai_Diem = new System.Windows.Forms.ComboBox();
+            this.btnTimKiem_Diem = new System.Windows.Forms.Button();
+            this.btnLamMoi_Diem = new System.Windows.Forms.Button();
+            this.btnChiTietDiem_Diem = new System.Windows.Forms.Button();
+            this.btnXuatExcel_Diem = new System.Windows.Forms.Button();
+            this.btnChiTietDoAn_Diem = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +79,10 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTienDo)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDoAn_Diem)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,13 +95,13 @@
             this.label1.Size = new System.Drawing.Size(489, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "UTC-Trường Đại Học Giao Thông Vận Tải";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabTienDo);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(2, 88);
             this.tabControl1.Name = "tabControl1";
@@ -109,6 +125,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnDangXuat);
             this.panel2.Controls.Add(this.btnXuatExcel);
             this.panel2.Controls.Add(this.btnXemChiTiet);
             this.panel2.Location = new System.Drawing.Point(688, 266);
@@ -119,7 +136,7 @@
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(135, 206);
+            this.btnXuatExcel.Location = new System.Drawing.Point(126, 149);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(242, 72);
             this.btnXuatExcel.TabIndex = 3;
@@ -129,7 +146,7 @@
             // 
             // btnXemChiTiet
             // 
-            this.btnXemChiTiet.Location = new System.Drawing.Point(135, 69);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(126, 45);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(242, 70);
             this.btnXemChiTiet.TabIndex = 0;
@@ -235,7 +252,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.btnChamDiem_TienDo);
+            this.panel4.Controls.Add(this.btnChiTietDoAn);
             this.panel4.Controls.Add(this.btnKiemTra_TienDo);
             this.panel4.Controls.Add(this.btnXemNhom_TienDo);
             this.panel4.Location = new System.Drawing.Point(689, 224);
@@ -243,18 +260,19 @@
             this.panel4.Size = new System.Drawing.Size(470, 375);
             this.panel4.TabIndex = 2;
             // 
-            // btnChamDiem_TienDo
+            // btnChiTietDoAn
             // 
-            this.btnChamDiem_TienDo.Location = new System.Drawing.Point(111, 270);
-            this.btnChamDiem_TienDo.Name = "btnChamDiem_TienDo";
-            this.btnChamDiem_TienDo.Size = new System.Drawing.Size(211, 56);
-            this.btnChamDiem_TienDo.TabIndex = 2;
-            this.btnChamDiem_TienDo.Text = "Chấm điểm theo tiến độ";
-            this.btnChamDiem_TienDo.UseVisualStyleBackColor = true;
+            this.btnChiTietDoAn.Location = new System.Drawing.Point(111, 164);
+            this.btnChiTietDoAn.Name = "btnChiTietDoAn";
+            this.btnChiTietDoAn.Size = new System.Drawing.Size(211, 56);
+            this.btnChiTietDoAn.TabIndex = 2;
+            this.btnChiTietDoAn.Text = "Chi tiết đồ án";
+            this.btnChiTietDoAn.UseVisualStyleBackColor = true;
+            this.btnChiTietDoAn.Click += new System.EventHandler(this.btnChiTietDoAn_TienDo_Click);
             // 
             // btnKiemTra_TienDo
             // 
-            this.btnKiemTra_TienDo.Location = new System.Drawing.Point(111, 151);
+            this.btnKiemTra_TienDo.Location = new System.Drawing.Point(111, 292);
             this.btnKiemTra_TienDo.Name = "btnKiemTra_TienDo";
             this.btnKiemTra_TienDo.Size = new System.Drawing.Size(211, 56);
             this.btnKiemTra_TienDo.TabIndex = 1;
@@ -334,21 +352,15 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel6);
+            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this.dgvDanhSachDoAn_Diem);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1230, 621);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Lớp&Khoa";
+            this.tabPage3.Text = "Điểm";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1230, 621);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Team";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -358,6 +370,126 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Thông tin";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvDanhSachDoAn_Diem
+            // 
+            this.dgvDanhSachDoAn_Diem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachDoAn_Diem.Location = new System.Drawing.Point(14, 36);
+            this.dgvDanhSachDoAn_Diem.Name = "dgvDanhSachDoAn_Diem";
+            this.dgvDanhSachDoAn_Diem.RowHeadersWidth = 62;
+            this.dgvDanhSachDoAn_Diem.RowTemplate.Height = 28;
+            this.dgvDanhSachDoAn_Diem.Size = new System.Drawing.Size(623, 557);
+            this.dgvDanhSachDoAn_Diem.TabIndex = 0;
+            this.dgvDanhSachDoAn_Diem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachDoAn_Diem_CellContentClick);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnLamMoi_Diem);
+            this.panel5.Controls.Add(this.btnTimKiem_Diem);
+            this.panel5.Controls.Add(this.cboTrangThai_Diem);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.txtTenDoAn_Diem);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(659, 36);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(507, 248);
+            this.panel5.TabIndex = 1;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnChiTietDoAn_Diem);
+            this.panel6.Controls.Add(this.btnXuatExcel_Diem);
+            this.panel6.Controls.Add(this.btnChiTietDiem_Diem);
+            this.panel6.Location = new System.Drawing.Point(659, 304);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(507, 288);
+            this.panel6.TabIndex = 2;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(49, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tên đồ án";
+            // 
+            // txtTenDoAn_Diem
+            // 
+            this.txtTenDoAn_Diem.Location = new System.Drawing.Point(155, 47);
+            this.txtTenDoAn_Diem.Multiline = true;
+            this.txtTenDoAn_Diem.Name = "txtTenDoAn_Diem";
+            this.txtTenDoAn_Diem.Size = new System.Drawing.Size(267, 26);
+            this.txtTenDoAn_Diem.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(49, 119);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Trạng thái";
+            // 
+            // cboTrangThai_Diem
+            // 
+            this.cboTrangThai_Diem.FormattingEnabled = true;
+            this.cboTrangThai_Diem.Location = new System.Drawing.Point(155, 116);
+            this.cboTrangThai_Diem.Name = "cboTrangThai_Diem";
+            this.cboTrangThai_Diem.Size = new System.Drawing.Size(267, 28);
+            this.cboTrangThai_Diem.TabIndex = 3;
+            // 
+            // btnTimKiem_Diem
+            // 
+            this.btnTimKiem_Diem.Location = new System.Drawing.Point(53, 188);
+            this.btnTimKiem_Diem.Name = "btnTimKiem_Diem";
+            this.btnTimKiem_Diem.Size = new System.Drawing.Size(160, 36);
+            this.btnTimKiem_Diem.TabIndex = 4;
+            this.btnTimKiem_Diem.Text = "Tìm kiếm";
+            this.btnTimKiem_Diem.UseVisualStyleBackColor = true;
+            this.btnTimKiem_Diem.Click += new System.EventHandler(this.btnTimKiem_Diem_Click);
+            // 
+            // btnLamMoi_Diem
+            // 
+            this.btnLamMoi_Diem.Location = new System.Drawing.Point(262, 188);
+            this.btnLamMoi_Diem.Name = "btnLamMoi_Diem";
+            this.btnLamMoi_Diem.Size = new System.Drawing.Size(160, 36);
+            this.btnLamMoi_Diem.TabIndex = 5;
+            this.btnLamMoi_Diem.Text = "Làm mới";
+            this.btnLamMoi_Diem.UseVisualStyleBackColor = true;
+            this.btnLamMoi_Diem.Click += new System.EventHandler(this.btnLamMoi_Diem_Click);
+            // 
+            // btnChiTietDiem_Diem
+            // 
+            this.btnChiTietDiem_Diem.Location = new System.Drawing.Point(128, 115);
+            this.btnChiTietDiem_Diem.Name = "btnChiTietDiem_Diem";
+            this.btnChiTietDiem_Diem.Size = new System.Drawing.Size(206, 62);
+            this.btnChiTietDiem_Diem.TabIndex = 0;
+            this.btnChiTietDiem_Diem.Text = "Chi tiết điểm";
+            this.btnChiTietDiem_Diem.UseVisualStyleBackColor = true;
+            this.btnChiTietDiem_Diem.Click += new System.EventHandler(this.btnChiTietDiem_Diem_Click);
+            // 
+            // btnXuatExcel_Diem
+            // 
+            this.btnXuatExcel_Diem.Location = new System.Drawing.Point(128, 211);
+            this.btnXuatExcel_Diem.Name = "btnXuatExcel_Diem";
+            this.btnXuatExcel_Diem.Size = new System.Drawing.Size(206, 62);
+            this.btnXuatExcel_Diem.TabIndex = 1;
+            this.btnXuatExcel_Diem.Text = "Xuất Excel";
+            this.btnXuatExcel_Diem.UseVisualStyleBackColor = true;
+            this.btnXuatExcel_Diem.Click += new System.EventHandler(this.btnXuatExcel_Diem_Click);
+            // 
+            // btnChiTietDoAn_Diem
+            // 
+            this.btnChiTietDoAn_Diem.Location = new System.Drawing.Point(128, 21);
+            this.btnChiTietDoAn_Diem.Name = "btnChiTietDoAn_Diem";
+            this.btnChiTietDoAn_Diem.Size = new System.Drawing.Size(206, 62);
+            this.btnChiTietDoAn_Diem.TabIndex = 2;
+            this.btnChiTietDoAn_Diem.Text = "Chi tiết đồ án";
+            this.btnChiTietDoAn_Diem.UseVisualStyleBackColor = true;
+            this.btnChiTietDoAn_Diem.Click += new System.EventHandler(this.btnChiTietDoAn_Diem_Click);
             // 
             // pictureBox1
             // 
@@ -371,14 +503,26 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Location = new System.Drawing.Point(126, 255);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(242, 72);
+            this.btnDangXuat.TabIndex = 4;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
             // fTeacherGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1271, 775);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "fTeacherGui";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fTeacherGui";
@@ -394,6 +538,11 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTienDo)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDoAn_Diem)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -408,7 +557,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabTienDo;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dgvDanhSachDoAn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTenDoAn;
@@ -429,7 +577,20 @@
         private System.Windows.Forms.Button btnTimKiem_TienDo;
         private System.Windows.Forms.TextBox txtTenDoAn_TienDo;
         private System.Windows.Forms.Button btnXemNhom_TienDo;
-        private System.Windows.Forms.Button btnChamDiem_TienDo;
+        private System.Windows.Forms.Button btnChiTietDoAn;
         private System.Windows.Forms.Button btnKiemTra_TienDo;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dgvDanhSachDoAn_Diem;
+        private System.Windows.Forms.ComboBox cboTrangThai_Diem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtTenDoAn_Diem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnXuatExcel_Diem;
+        private System.Windows.Forms.Button btnChiTietDiem_Diem;
+        private System.Windows.Forms.Button btnLamMoi_Diem;
+        private System.Windows.Forms.Button btnTimKiem_Diem;
+        private System.Windows.Forms.Button btnChiTietDoAn_Diem;
+        private System.Windows.Forms.Button btnDangXuat;
     }
 }

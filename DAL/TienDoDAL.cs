@@ -1,5 +1,9 @@
-﻿using System;
+﻿using LTTQ_G2_2025.DTO;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace LTTQ_G2_2025.DAL
 {
@@ -248,5 +252,208 @@ ORDER BY st.stage_id";
         }
 
         #endregion
+        public List<InforStage> GetStagesByProjectId(long projectId)
+        {
+            var stages = new List<InforStage>();
+
+            string query = @"
+        SELECT 
+            p.project_id,
+            p.name AS projectName,
+
+            s.stage_id,
+            s.stageName,
+
+            m.milestone_id,
+            m.milestoneName,
+            m.milestoneDescription,
+            m.weightPercent,
+            m.dueDate,
+                 
+            pr.progress_report_id,
+            pr.progressReportName,
+            pr.progressReportContent,
+            pr.progressReportFile,
+            pr.progressReportPercent
+        FROM Project p
+        LEFT JOIN (
+            SELECT DISTINCT stage_id, project_id FROM Milestone
+            UNION
+            SELECT DISTINCT stage_id, project_id FROM ProgressReport
+        ) sp
+               ON sp.project_id = p.project_id
+        LEFT JOIN Stage s
+               ON s.stage_id = sp.stage_id
+        LEFT JOIN Milestone m
+               ON m.stage_id = s.stage_id
+              AND m.project_id = p.project_id
+        LEFT JOIN ProgressReport pr
+               ON pr.stage_id = s.stage_id
+              AND pr.project_id = p.project_id
+        WHERE p.project_id = @projectId;";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { projectId });
+
+            foreach (DataRow row in dt.Rows)
+            {
+                var stage = new InforStage
+                {
+                    ProjectId = row["project_id"] is DBNull ? 0 : Convert.ToInt64(row["project_id"]),
+                    StageId = row["stage_id"] is DBNull ? 0 : Convert.ToInt32(row["stage_id"]),
+                    StageName = row["stageName"] as string,
+
+                    MilestoneId = row["milestone_id"] is DBNull ? 0 : Convert.ToInt64(row["milestone_id"]),
+                    MilestoneName = row["milestoneName"] as string,
+                    MilestoneDescription = row["milestoneDescription"] as string,
+                    WeightPercent = row["weightPercent"] is DBNull ? (int?)null : Convert.ToInt32(row["weightPercent"]),
+                    DueDate = row["dueDate"] is DBNull ? (DateTime?)null : Convert.ToDateTime(row["dueDate"]),
+
+                    ProgressReportId = row["progress_report_id"] is DBNull ? 0 : Convert.ToInt64(row["progress_report_id"]),
+                    ProgressReportName = row["progressReportName"] as string,
+                    ProgressReportContent = row["progressReportContent"] as string,
+                    ProgressReportFile = row["progressReportFile"] as string,
+                    ProgressReportPercent = row["progressReportPercent"] is DBNull ? (int?)null : Convert.ToInt32(row["progressReportPercent"])
+                };
+
+                stages.Add(stage);
+            }
+
+            return stages;
+        }
+        public bool SaveEvaluationForMilestone(long projectId, long milestoneId, decimal score, string comment)
+        {
+            const long councilId = 1;
+
+            try
+            {
+                // 1. Kiểm tra đã có bản ghi chưa
+                string sqlCheck = @"
+            SELECT COUNT(*) 
+            FROM Evaluation
+            WHERE project_id  = @project_id
+              AND milestone_id = @milestone_id
+              AND council_id   = @council_id";
+
+                object result = DataProvider.Instance.ExecuteScalar(
+                    sqlCheck,
+                    new object[] { projectId, milestoneId, councilId }  // 3 tham số, 3 @
+                );
+
+                int count = 0;
+                if (result != null && result != DBNull.Value)
+                    count = Convert.ToInt32(result);
+
+                int rows;
+
+                if (count > 0)
+                {
+                    // 2a. ĐÃ có -> UPDATE
+                    string sqlUpdate = @"
+                UPDATE Evaluation
+                SET totalScore     = @score,
+                    comment        = @comment,
+                    evaluationDate = GETDATE()
+                WHERE project_id   = @project_id
+                  AND milestone_id = @milestone_id
+                  AND council_id   = @council_id;";
+
+                    rows = DataProvider.Instance.ExecuteNonQuery(
+                        sqlUpdate,
+                        new object[] { projectId, milestoneId, councilId, score, comment } // 5 tham số, 5 @
+                    );
+                }
+                else
+                {
+                    // 2b. Chưa có -> INSERT
+                    string sqlInsert = @"
+                INSERT INTO Evaluation
+                    (project_id, milestone_id, council_id, totalScore, comment, evaluationDate)
+                VALUES
+                    (@project_id, @milestone_id, @council_id, @score, @comment, GETDATE());";
+
+                    rows = DataProvider.Instance.ExecuteNonQuery(
+                        sqlInsert,
+                        new object[] { projectId, milestoneId, councilId, score, comment } // 5 tham số, 5 @
+                    );
+                }
+
+                return rows > 0;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL khi lưu điểm milestone: " + ex.Message,
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public DataRow GetProjectHeader(long projectId, long teacherId)
+        {
+            string sql = @"
+        SELECT TOP 1
+            p.project_id,
+            p.name        AS projectName,
+            t.teacherName AS teacherName
+        FROM Project p
+        INNER JOIN Team tm ON tm.project_id = p.project_id
+        INNER JOIN Teacher t ON t.teacher_id = tm.teacher_id
+        WHERE p.project_id = @pid
+          AND t.teacher_id = @tid;";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(
+                sql,
+                new object[] { projectId, teacherId } // @pid, @tid
+            );
+
+            if (dt.Rows.Count == 0) return null;
+            return dt.Rows[0];
+        }
+        public DataRow GetMilestoneEvaluation(long projectId, long milestoneId)
+        {
+            const long councilId = 1; // giống chỗ SaveEvaluationForMilestone
+
+            string sql = @"
+        SELECT TOP 1
+            m.weightPercent        AS weightPercent,
+            m.milestoneDescription AS milestoneDescription,
+            ev.totalScore          AS totalScore,
+            ev.comment             AS comment
+        FROM Milestone m
+        LEFT JOIN Evaluation ev
+               ON ev.project_id   = m.project_id
+              AND ev.milestone_id = m.milestone_id
+              AND ev.council_id   = @council_id
+        WHERE m.project_id   = @pid
+          AND m.milestone_id = @mid;";
+
+            // THỨ TỰ tham số phải khớp với @ trong SQL:
+            // @council_id, @pid, @mid
+            DataTable dt = DataProvider.Instance.ExecuteQuery(
+                sql,
+                new object[] { councilId, projectId, milestoneId }
+            );
+
+            if (dt.Rows.Count == 0) return null;
+            return dt.Rows[0];
+        }
+        public bool UpdateMilestoneProgress(long milestoneId, int? weightPercent, string milestoneDescription)
+        {
+            string sql = @"
+        UPDATE Milestone
+        SET weightPercent = @weightPercent,
+            milestoneDescription = @milestoneDescription
+        WHERE milestone_id = @mid";
+
+            // chú ý thứ tự parameters: @weightPercent, @milestoneDescription, @mid
+            object pWeight = (object)weightPercent ?? DBNull.Value;
+            object pDesc = (object)(milestoneDescription ?? string.Empty);
+
+            int rows = DataProvider.Instance.ExecuteNonQuery(
+                sql,
+                new object[] { pWeight, pDesc, milestoneId }
+            );
+
+            return rows > 0;
+        }
     }
+
 }

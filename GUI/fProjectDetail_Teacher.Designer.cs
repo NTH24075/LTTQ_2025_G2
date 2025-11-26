@@ -92,23 +92,25 @@
             this.txtHocKy.Location = new System.Drawing.Point(127, 213);
             this.txtHocKy.Name = "txtHocKy";
             this.txtHocKy.ReadOnly = true;
-            this.txtHocKy.Size = new System.Drawing.Size(333, 26);
+            this.txtHocKy.Size = new System.Drawing.Size(469, 26);
             this.txtHocKy.TabIndex = 9;
             // 
             // txtMoTa
             // 
             this.txtMoTa.Location = new System.Drawing.Point(127, 122);
+            this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(333, 26);
+            this.txtMoTa.Size = new System.Drawing.Size(469, 26);
             this.txtMoTa.TabIndex = 7;
             // 
             // txtNoiDung
             // 
             this.txtNoiDung.Location = new System.Drawing.Point(127, 70);
+            this.txtNoiDung.Multiline = true;
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.ReadOnly = true;
-            this.txtNoiDung.Size = new System.Drawing.Size(333, 26);
+            this.txtNoiDung.Size = new System.Drawing.Size(469, 26);
             this.txtNoiDung.TabIndex = 6;
             // 
             // txtTenDoAn
@@ -116,7 +118,7 @@
             this.txtTenDoAn.Location = new System.Drawing.Point(127, 15);
             this.txtTenDoAn.Name = "txtTenDoAn";
             this.txtTenDoAn.ReadOnly = true;
-            this.txtTenDoAn.Size = new System.Drawing.Size(333, 26);
+            this.txtTenDoAn.Size = new System.Drawing.Size(469, 26);
             this.txtTenDoAn.TabIndex = 5;
             // 
             // label6
@@ -205,7 +207,7 @@
             this.btnDuyet.UseVisualStyleBackColor = true;
             this.btnDuyet.Click += new System.EventHandler(this.btnDuyet_Click);
             // 
-            // fProjectDetail
+            // fProjectDetail_Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -213,7 +215,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "fProjectDetail";
+            this.MaximizeBox = false;
+            this.Name = "fProjectDetail_Teacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectDetailGUI";
             this.Load += new System.EventHandler(this.fProjectDetail_Load);

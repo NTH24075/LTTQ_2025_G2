@@ -10,17 +10,17 @@ namespace LTTQ_G2_2025.DTO
     {
         public ClassDTO() { }
 
-        public ClassDTO(long clazzId, string clazzName,
+        public ClassDTO(long classId, string className,
                         int? facultyId, long? teacherId)
         {
-            ClazzId = clazzId;
-            ClazzName = clazzName;
+            ClassId = classId;
+            ClassName = className;
             FacultyId = facultyId;
             TeacherId = teacherId;
         }
 
-        public long ClazzId { get; set; }
-        public string ClazzName { get; set; }
+        public long ClassId { get; set; }
+        public string ClassName { get; set; }
         public int? FacultyId { get; set; }
         public long? TeacherId { get; set; }
     }

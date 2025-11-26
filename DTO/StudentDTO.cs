@@ -13,7 +13,7 @@ namespace LTTQ_G2_2025.DTO
         public StudentDTO(long studentId, string studentName, string studentCode,
                           string dateOfBirth, string email, string phoneNumber,
                           bool studentGender, string studentAddress, string img,
-                          bool flagDelete, long? accountId, long? clazzId, long? teamId)
+                          bool flagDelete, long? accountId, long? classId, long? teamId)
         {
             StudentId = studentId;
             StudentName = studentName;
@@ -26,7 +26,7 @@ namespace LTTQ_G2_2025.DTO
             Img = img;
             FlagDelete = flagDelete;
             AccountId = accountId;
-            ClazzId = clazzId;
+            ClassId = classId;
             TeamId = teamId;
         }
 
@@ -41,7 +41,7 @@ namespace LTTQ_G2_2025.DTO
         public string Img { get; set; }
         public bool FlagDelete { get; set; }
         public long? AccountId { get; set; }
-        public long? ClazzId { get; set; }
+        public long? ClassId { get; set; }
         public long? TeamId { get; set; }
     }
 }

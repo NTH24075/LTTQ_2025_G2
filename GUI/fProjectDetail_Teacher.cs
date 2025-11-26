@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace LTTQ_G2_2025.GUI
 {
-    public partial class fProjectDetail : Form
+    public partial class fProjectDetail_Teacher : Form
     {
         private long projectId;
         private TeacherBLL teacherBLL = new TeacherBLL();
         private int currentStatus = 0;
-        public fProjectDetail(long projectId)
+        public fProjectDetail_Teacher(long projectId)
         {
             InitializeComponent();
             this.projectId = projectId;

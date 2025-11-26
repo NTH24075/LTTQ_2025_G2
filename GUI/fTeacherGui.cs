@@ -94,7 +94,7 @@ namespace LTTQ_G2_2025.GUI
                 return;
             }
 
-            fProjectDetail f = new fProjectDetail(id);
+            fProjectDetail_Teacher f = new fProjectDetail_Teacher(id);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
 
@@ -321,6 +321,21 @@ namespace LTTQ_G2_2025.GUI
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog(this);
         }
+        private void btnKiemTra_TienDo_Click(object sender, EventArgs e)
+        {
+            long projectId = GetSelectedProjectId_TienDo();
+
+            if (projectId == -1)
+            {
+                MessageBox.Show("Vui lòng chọn một đồ án!", "Thông báo");
+                return;
+            }
+
+            fShowProgess f = new fShowProgess(projectId, _teacherId);
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
         private void dgvTienDo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

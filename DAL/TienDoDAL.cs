@@ -123,28 +123,61 @@ namespace LTTQ_G2_2025.DAL
         public DataTable GetMilestoneProgressByTeam(long projectId, long teacherId)
         {
             string query = @"
-                SELECT 
-                    m.milestone_id                        AS [Mã mốc],
-                    CONVERT(NVARCHAR(MAX), m.milestoneName) AS [Tên mốc],
-                    m.deadline                           AS [Deadline],
-                    sub.submissionDate                   AS [Ngày nộp],
-                    CASE 
-                        WHEN sub.submissionDate IS NULL THEN N'Chưa nộp'
-                        WHEN sub.submissionDate <= m.deadline THEN N'Đúng hạn'
-                        ELSE N'Trễ hạn'
-                    END                                  AS [Trạng thái nộp]
-                FROM Milestone m
-                INNER JOIN Team t ON t.project_id = m.project_id
-                LEFT JOIN Submission sub 
-                       ON sub.milestone_id = m.milestone_id 
-                      AND sub.team_id = t.team_id
-                WHERE m.project_id = @pid
-                  AND t.teacher_id = @tid
-                ORDER BY m.deadline";
+        SELECT
+            st.stageName                              AS [Giai đoạn],
+            m.milestone_id                            AS [Mã mốc],
+            CONVERT(NVARCHAR(MAX), m.milestoneName)   AS [Tên mốc],
+            CONVERT(NVARCHAR(MAX), m.milestoneDescription) AS [Mô tả],
+            m.percentWeight                           AS [Trọng số (%)],
+            m.deadline                                AS [Deadline],
+            pr.reportDate                             AS [Ngày nộp],
+            CONVERT(NVARCHAR(MAX), pr.reportDescription) AS [Mô tả nộp],
+            CASE 
+                WHEN pr.reportDate IS NULL THEN N'Chưa nộp'
+                WHEN pr.reportDate <= m.deadline THEN N'Đúng hạn'
+                ELSE N'Trễ hạn'
+            END                                       AS [Trạng thái]
+        FROM Milestone m
+        INNER JOIN Stage st ON st.stage_id = m.stage_id      -- <== LIÊN KẾT VỚI STAGE
+        INNER JOIN Team t   ON t.project_id = m.project_id
+        LEFT JOIN ProgressReport pr
+               ON pr.milestone_id = m.milestone_id
+              AND pr.team_id      = t.team_id
+        WHERE m.project_id = @pid
+          AND t.teacher_id = @tid
+  "; 
+
+    return DataProvider.Instance.ExecuteQuery(
+        query,
+        new object[] { projectId, teacherId }
+    );
+        }
+        public DataTable GetStageCompletionStatus(long projectId, long teacherId)
+        {
+            string query = @"
+SELECT DISTINCT
+    st.stage_id  AS [StageId],
+    st.stageName AS [Giai đoạn],
+    CASE 
+        WHEN EXISTS (
+            SELECT 1 
+            FROM ProgressReport pr
+            WHERE pr.project_id = m.project_id
+              AND pr.stage_id   = st.stage_id
+        ) 
+        THEN N'Đã hoàn thành'
+        ELSE N'Chưa hoàn thành'
+    END AS [Trạng thái]
+FROM Stage st
+INNER JOIN Milestone m ON m.stage_id = st.stage_id
+INNER JOIN Team t      ON t.project_id = m.project_id
+WHERE t.project_id = @pid
+  AND t.teacher_id = @tid
+ORDER BY st.stage_id";
 
             return DataProvider.Instance.ExecuteQuery(
                 query,
-                new object[] { projectId, teacherId }
+                new object[] { projectId, teacherId }   // 2 param, 2 @
             );
         }
 

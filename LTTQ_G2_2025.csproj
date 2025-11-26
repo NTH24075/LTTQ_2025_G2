@@ -88,6 +88,12 @@
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fShowProgess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fShowProgess.Designer.cs">
+      <DependentUpon>fShowProgess.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fTeacherGui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +118,11 @@
     <Compile Include="GUI\fThongTinTaiKhoan_Admin.Designer.cs">
       <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fProjectDetail.cs">
+    <Compile Include="GUI\fProjectDetail_Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fProjectDetail.Designer.cs">
-      <DependentUpon>fProjectDetail.cs</DependentUpon>
+    <Compile Include="GUI\fProjectDetail_Teacher.Designer.cs">
+      <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,8 +132,11 @@
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fProjectDetail.resx">
-      <DependentUpon>fProjectDetail.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\fProjectDetail_Teacher.resx">
+      <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fShowProgess.resx">
+      <DependentUpon>fShowProgess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fTeacherGui.resx">
       <DependentUpon>fTeacherGui.cs</DependentUpon>

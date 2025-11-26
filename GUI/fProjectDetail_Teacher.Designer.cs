@@ -1,6 +1,6 @@
 ﻿namespace LTTQ_G2_2025.GUI
 {
-    partial class fProjectDetail
+    partial class fProjectDetail_Teacher
     {
         /// <summary>
         /// Required designer variable.

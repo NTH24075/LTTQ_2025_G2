@@ -260,6 +260,7 @@
             this.btnKiemTra_TienDo.TabIndex = 1;
             this.btnKiemTra_TienDo.Text = "Kiểm tra tiến độ";
             this.btnKiemTra_TienDo.UseVisualStyleBackColor = true;
+            this.btnKiemTra_TienDo.Click += new System.EventHandler(this.btnKiemTra_TienDo_Click);
             // 
             // btnXemNhom_TienDo
             // 

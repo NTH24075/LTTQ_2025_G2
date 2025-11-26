@@ -120,5 +120,10 @@ namespace LTTQ_G2_2025.BLL
         }
 
         #endregion
+        public DataTable GetStageCompletionStatus(long projectId)
+        {
+            return tienDoDAL.GetStageCompletionStatus(projectId, teacherId);
+        }
     }
+
 }

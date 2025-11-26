@@ -68,7 +68,7 @@ namespace LTTQ_G2_2025
                         //managerForm.ShowDialog();
                         //break;
 
-                    case "user":
+                    case "role_student":
                     default:
                         long currentAccountId = account.AccountId;
                         

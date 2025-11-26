@@ -248,5 +248,37 @@ namespace LTTQ_G2_2025.DAL
 
             return list;
         }
+        public bool EmailExists(string email)
+        {
+            string q = "SELECT COUNT(*) FROM Account WHERE email = @email";
+            object o = DataProvider.Instance.ExecuteScalar(q, new object[] { email });
+            return Convert.ToInt32(o) > 0;
+        }
+
+        public long CreateAccount(string email, string password, int roleId)
+        {
+            string query = @"
+                INSERT INTO Account (email, [password], role_id)
+                VALUES (@email, @password, @role_id);
+                SELECT CAST(SCOPE_IDENTITY() AS BIGINT);
+            ";
+
+            object result = DataProvider.Instance.ExecuteScalar(query,
+                new object[] { email, password, roleId });
+
+            return (result == null || result == DBNull.Value)
+                ? 0
+                : Convert.ToInt64(result);
+        }
+
+        public int GetRoleIdByName(string roleName)
+        {
+            string q = "SELECT role_id FROM Role WHERE roleName = @roleName";
+            object o = DataProvider.Instance.ExecuteScalar(q, new object[] { roleName });
+            return (o == null || o == DBNull.Value) ? 0 : Convert.ToInt32(o);
+        }
+
+        
     }
 }
+

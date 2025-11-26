@@ -26,5 +26,13 @@ namespace LTTQ_G2_2025.DAL
             }
             return list;
         }
+        public int GetRoleIdByName(string roleName)
+        {
+            string q = "SELECT role_id FROM Role WHERE roleName = @name";
+            object o = DataProvider.Instance.ExecuteScalar(q, new object[] { roleName });
+            if (o == null || o == DBNull.Value) throw new Exception("Không tìm thấy role: " + roleName);
+            return Convert.ToInt32(o);
+        }
     }
+
 }

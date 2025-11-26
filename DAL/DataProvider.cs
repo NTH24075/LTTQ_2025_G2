@@ -106,5 +106,36 @@ namespace LTTQ_G2_2025.DAL
                 command.Parameters.AddWithValue(paramName, parameters[i] ?? DBNull.Value);
             }
         }
+        public DataTable ExecuteQuery(string sql, IDictionary<string, object> namedParams)
+        {
+            using (var conn = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand(sql, conn))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                // trích tên tham số như trên...
+                var names = new List<string>();
+                var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                foreach (Match m in Regex.Matches(sql, @"(?<!@)@\w+"))
+                {
+                    string name = m.Value;
+                    if (seen.Add(name)) names.Add(name);
+                }
+
+                foreach (var n in names)
+                {
+                    object val;
+                    if (namedParams != null && namedParams.TryGetValue(n, out val))
+                        cmd.Parameters.AddWithValue(n, val ?? DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue(n, DBNull.Value); // hoặc throw nếu bắt buộc
+                }
+
+                var dt = new DataTable();
+                conn.Open();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
     }
 }

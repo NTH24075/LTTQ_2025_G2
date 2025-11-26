@@ -47,17 +47,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtFaculty = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(481, 360);
+            this.button1.Location = new System.Drawing.Point(481, 396);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 53);
             this.button1.TabIndex = 0;
@@ -115,9 +119,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(14, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 19);
+            this.label2.Size = new System.Drawing.Size(37, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã sinh viên:";
+            this.label2.Text = "Mã:";
             // 
             // panel3
             // 
@@ -227,11 +231,39 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Địa chỉ:";
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.txtFaculty);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Location = new System.Drawing.Point(223, 323);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(415, 53);
+            this.panel6.TabIndex = 4;
+            // 
+            // txtFaculty
+            // 
+            this.txtFaculty.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFaculty.Location = new System.Drawing.Point(140, 15);
+            this.txtFaculty.Name = "txtFaculty";
+            this.txtFaculty.Size = new System.Drawing.Size(240, 27);
+            this.txtFaculty.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Khoa:";
+            // 
             // fDetailAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 450);
+            this.ClientSize = new System.Drawing.Size(674, 479);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
@@ -255,6 +287,8 @@
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +315,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtFaculty;
+        private System.Windows.Forms.Label label7;
     }
 }

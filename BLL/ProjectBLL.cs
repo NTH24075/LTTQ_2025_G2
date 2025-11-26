@@ -19,8 +19,8 @@ namespace LTTQ_G2_2025.BLL
             => _dal.GetTeamIdByStudentAccount(accountId);
 
         public bool CreateProjectForTeam(long teamId, string name, string content,
-                                         string img, string description, bool status, int? semId)
-            => _dal.CreateProjectAndAttachToTeam(teamId, name, content, img, description, status, semId);
+                                 string img, string description, bool status, int? semId, long teacherId)
+    => _dal.CreateProjectAndAttachToTeam(teamId, name, content, img, description, status, semId, teacherId);
         public ProjectDetailDTO GetProjectDetail(long accountId)
             => _dal.GetProjectWithDetailByStudentAccount(accountId);
         

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTTQ_G2_2025.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,13 +10,14 @@ namespace LTTQ_G2_2025.DAL
 {
     public class ShowTeacherDAL
     {
+
         public List<TeacherDTO> GetAllTeachers()
         {
             List<TeacherDTO> list = new List<TeacherDTO>();
 
-            string query = "SELECT teacher_id, teacherName, email, phoneNumber, gender, address, img FROM Teacher WHERE flagDelete = 0";
+            string query = "SELECT teacher_id, teacherName, email, phoneNumber, teachergender, teacheraddress, img FROM Teacher WHERE flagDelete = 0";
 
-            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow r in dt.Rows)
             {
@@ -25,8 +27,8 @@ namespace LTTQ_G2_2025.DAL
                     TeacherName = r["teacherName"].ToString(),
                     Email = r["email"].ToString(),
                     PhoneNumber = r["phoneNumber"].ToString(),
-                    Gender = Convert.ToBoolean(r["gender"]),
-                    Address = r["address"].ToString(),
+                    TeacherGender = Convert.ToBoolean(r["teachergender"]),
+                    TeacherAddress = r["teacheraddress"].ToString(),
                     Img = r["img"].ToString()
                 });
             }

@@ -90,20 +90,45 @@ namespace LTTQ_G2_2025.DAL
             }
         }
 
+        //private void AddParameters(string query, object[] parameters, SqlCommand command)
+        //{
+        //    if (parameters == null)
+        //        return;
+
+        //    MatchCollection matches = Regex.Matches(query, @"@\w+");
+
+        //    if (matches.Count != parameters.Length)
+        //        throw new Exception("Số lượng parameters không khớp với số tham số trong câu SQL!");
+
+        //    for (int i = 0; i < matches.Count; i++)
+        //    {
+        //        string paramName = matches[i].Value;
+        //        command.Parameters.AddWithValue(paramName, parameters[i] ?? DBNull.Value);
+        //    }
+        //}
         private void AddParameters(string query, object[] parameters, SqlCommand command)
         {
-            if (parameters == null)
+            if (parameters == null || parameters.Length == 0)
                 return;
 
+            // Sử dụng Regex để tìm tất cả các tên tham số (@\w+) trong chuỗi SQL
             MatchCollection matches = Regex.Matches(query, @"@\w+");
 
+            // Nếu số lượng tên tham số tìm thấy trong SQL không khớp với số lượng đối tượng truyền vào
             if (matches.Count != parameters.Length)
-                throw new Exception("Số lượng parameters không khớp với số tham số trong câu SQL!");
+            {
+                // Ném lỗi chi tiết hơn để dễ debug
+                throw new Exception($"Lỗi tham số: Số lượng tham số trong SQL ({matches.Count}) không khớp với số lượng đối tượng truyền vào ({parameters.Length}).");
+            }
 
+            // Vòng lặp này gán giá trị cho từng tham số theo TÊN TÌM ĐƯỢC từ Regex
             for (int i = 0; i < matches.Count; i++)
             {
                 string paramName = matches[i].Value;
-                command.Parameters.AddWithValue(paramName, parameters[i] ?? DBNull.Value);
+                object paramValue = parameters[i] ?? DBNull.Value; // Xử lý null
+
+                // Thêm tham số bằng tên và giá trị của nó
+                command.Parameters.AddWithValue(paramName, paramValue);
             }
         }
     }

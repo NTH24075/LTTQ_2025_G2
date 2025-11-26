@@ -48,8 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\TeacherBLL.cs" />
+    <Compile Include="BLL\TienDoBLL.cs" />
+    <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\TienDoDAL.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\AccountRoleDTO.cs" />
     <Compile Include="DTO\AdminDTO.cs" />
@@ -84,6 +88,18 @@
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fTeacherGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeacherGui.Designer.cs">
+      <DependentUpon>fTeacherGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fTeamMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeamMembers.Designer.cs">
+      <DependentUpon>fTeamMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fThongTinTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +112,12 @@
     <Compile Include="GUI\fThongTinTaiKhoan_Admin.Designer.cs">
       <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fProjectDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fProjectDetail.Designer.cs">
+      <DependentUpon>fProjectDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\fLogin.resx">
@@ -103,6 +125,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fProjectDetail.resx">
+      <DependentUpon>fProjectDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeacherGui.resx">
+      <DependentUpon>fTeacherGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeamMembers.resx">
+      <DependentUpon>fTeamMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fThongTinTaiKhoan.resx">
       <DependentUpon>fThongTinTaiKhoan.cs</DependentUpon>
@@ -135,6 +166,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Resource\Logo-Dai-Hoc-Giao-Thong-Van-Tai-UTC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

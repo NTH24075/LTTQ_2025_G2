@@ -62,10 +62,17 @@ namespace LTTQ_G2_2025
                         adminForm.ShowDialog();
                         break;
 
-                    case "manager":
-                        //FormManager managerForm = new FormManager(account);
-                        //managerForm.ShowDialog();
-                        //break;
+                    case "role_teacher":
+                        TeacherBLL teacherBLL = new TeacherBLL();
+
+                        // 2. Lấy accountId từ DTO (đổi AccountId thành đúng tên property trong AccountDTO của bạn)
+                        long accountId = account.AccountId;
+
+                        long? teacherId = teacherBLL.GetTeacherIdByAccountId(accountId);
+                        fTeacherGui teacherForm = new fTeacherGui(teacherId.Value);
+                        teacherForm.ShowDialog();
+                    //managerForm.ShowDialog();
+                    break;
 
                     case "user":
                     default:
@@ -175,6 +182,11 @@ namespace LTTQ_G2_2025
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

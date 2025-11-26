@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fStudentList));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +49,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ViewProject = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -76,11 +78,11 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(186, 27);
+            this.label1.Location = new System.Drawing.Point(165, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 37);
+            this.label1.Size = new System.Drawing.Size(348, 37);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách thành viên";
+            this.label1.Text = "▤Danh sách thành viên";
             // 
             // groupBox2
             // 
@@ -101,12 +103,14 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(725, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(511, 416);
+            this.groupBox2.Size = new System.Drawing.Size(313, 416);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // picAvatar
             // 
+            this.picAvatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picAvatar.ErrorImage")));
             this.picAvatar.Location = new System.Drawing.Point(21, 19);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(96, 91);
@@ -208,9 +212,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(27, 261);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Email";
+            this.label6.Text = "Email:";
             // 
             // label5
             // 
@@ -242,33 +246,45 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(897, 27);
+            this.label2.Location = new System.Drawing.Point(796, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 37);
+            this.label2.Size = new System.Drawing.Size(190, 37);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Thông tin";
+            this.label2.Text = "👤Thông tin";
             // 
-            // button1
+            // ViewProject
             // 
-            this.button1.Location = new System.Drawing.Point(1072, 576);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Xem đồ án của nhóm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ViewProject.Location = new System.Drawing.Point(782, 489);
+            this.ViewProject.Name = "ViewProject";
+            this.ViewProject.Size = new System.Drawing.Size(221, 49);
+            this.ViewProject.TabIndex = 4;
+            this.ViewProject.Text = "Xem đồ án  ⮞";
+            this.ViewProject.UseVisualStyleBackColor = true;
+            this.ViewProject.Click += new System.EventHandler(this.ViewProject_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(67, 489);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(147, 49);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "⮜ Trở về đăng nhập";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // fStudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 718);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1092, 560);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.ViewProject);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "fStudentList";
-            this.Text = "fStudentList";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.fStudentList_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
@@ -301,6 +317,7 @@
         private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox picAvatar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ViewProject;
+        private System.Windows.Forms.Button btnBack;
     }
 }

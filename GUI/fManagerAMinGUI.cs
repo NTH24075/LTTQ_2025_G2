@@ -53,5 +53,35 @@ namespace LTTQ_G2_2025.GUI
         {
 
         }
+
+        private void btDetailAcc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvAcc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btUpdateAcc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

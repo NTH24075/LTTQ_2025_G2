@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -46,18 +47,30 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
   <ItemGroup>
+    <!-- BLL -->
     <Compile Include="BLL\AccountBLL.cs" />
     <Compile Include="BLL\InforStageBLL.cs" />
     <Compile Include="BLL\ProjectBLL.cs" />
     <Compile Include="BLL\ShowTeacherBLL.cs" />
     <Compile Include="BLL\StudentBLL.cs" />
-    <Compile Include="DAL\AccountDAL.cs" />
-    <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="BLL\DiemBLL.cs" />
+    <Compile Include="BLL\TeacherBLL.cs" />
+    <Compile Include="BLL\TienDoBLL.cs" />
+
+    <!-- DAL -->
     <Compile Include="DAL\InforStageDAL.cs" />
     <Compile Include="DAL\ProjectDAL.cs" />
     <Compile Include="DAL\ShowTeacherDAL.cs" />
     <Compile Include="DAL\StudentDAL.cs" />
+    <Compile Include="DAL\DiemDAL.cs" />
+    <Compile Include="DAL\TeacherDAL.cs" />
+    <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\TienDoDAL.cs" />
+
+    <!-- DTO -->
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\AccountRoleDTO.cs" />
     <Compile Include="DTO\AdminDTO.cs" />
@@ -77,29 +90,34 @@
     <Compile Include="DTO\QuestionAndAnswerDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\StudentDTO.cs" />
+    <Compile Include="DTO\SemesterDTO.cs" />
+    <Compile Include="DTO\StageDTO.cs" />
+    <Compile Include="DTO\StudentAnnouncementDTO.cs" />
+    <Compile Include="DTO\TeacherDTO.cs" />
+    <Compile Include="DTO\TeamDTO.cs" />
+
+    <!-- GUI forms -->
     <Compile Include="GUI\fCreateProject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\fCreateProject.Designer.cs">
       <DependentUpon>fCreateProject.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTO\SemesterDTO.cs" />
-    <Compile Include="DTO\StageDTO.cs" />
-    <Compile Include="DTO\StudentAnnouncementDTO.cs" />
-    <Compile Include="DTO\TeacherDTO.cs" />
-    <Compile Include="DTO\TeamDTO.cs" />
+
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+
     <Compile Include="GUI\fManagerAMinGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\fManagerAMinGUI.Designer.cs">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
     </Compile>
+
     <Compile Include="GUI\fProjectDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +130,26 @@
     <Compile Include="GUI\fStudentList.Designer.cs">
       <DependentUpon>fStudentList.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="GUI\fMilestone_Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fMilestone_Teacher.Designer.cs">
+      <DependentUpon>fMilestone_Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fTeacherGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeacherGui.Designer.cs">
+      <DependentUpon>fTeacherGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fTeamMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fTeamMembers.Designer.cs">
+      <DependentUpon>fTeamMembers.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="GUI\fThongTinTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,8 +162,23 @@
     <Compile Include="GUI\fThongTinTaiKhoan_Admin.Designer.cs">
       <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fProjectDetail_Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fProjectDetail_Teacher.Designer.cs">
+      <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\fShowScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fShowScore.Designer.cs">
+      <DependentUpon>fShowScore.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <!-- resx -->
     <EmbeddedResource Include="GUI\fCreateProject.resx">
       <DependentUpon>fCreateProject.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,12 +194,28 @@
     <EmbeddedResource Include="GUI\fStudentList.resx">
       <DependentUpon>fStudentList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fMilestone_Teacher.resx">
+      <DependentUpon>fMilestone_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fProjectDetail_Teacher.resx">
+      <DependentUpon>fProjectDetail_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeacherGui.resx">
+      <DependentUpon>fTeacherGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fTeamMembers.resx">
+      <DependentUpon>fTeamMembers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fThongTinTaiKhoan.resx">
       <DependentUpon>fThongTinTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fThongTinTaiKhoan_Admin.resx">
       <DependentUpon>fThongTinTaiKhoan_Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fShowScore.resx">
+      <DependentUpon>fShowScore.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -157,6 +226,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -167,9 +237,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+
   <ItemGroup>
     <Content Include="Images\Students\sv1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -179,8 +251,38 @@
     </Content>
     <None Include="GUI\Resource\Logo-Dai-Hoc-Giao-Thong-Van-Tai-UTC.png" />
   </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Uploads\" />
+
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

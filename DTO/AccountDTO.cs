@@ -23,7 +23,7 @@ namespace LTTQ_G2_2025.DTO
         public string GetPrimaryRole()
         {
             if (HasRole("Admin")) return "Admin";
-            if (HasRole("Manager")) return "Manager";
+            if (HasRole("ROLE_TEACHER")) return "ROLE_TEACHER";
             if (HasRole("User")) return "User";
             return "User"; // Default
         }

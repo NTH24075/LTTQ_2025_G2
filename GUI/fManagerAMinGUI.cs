@@ -746,11 +746,9 @@ namespace LTTQ_G2_2025.GUI
         {
             try
             {
-                // Lấy từ DateTimePicker cho Student/Teacher
                 DateTime? fromSt = dtpFromSt.Checked ? (DateTime?)dtpFromSt.Value.Date : null;
                 DateTime? toSt = dtpToSt.Checked ? (DateTime?)dtpToSt.Value.Date : null;
 
-                // Lấy từ DateTimePicker cho Team/Project  
                 DateTime? fromTeam = dtFromTeam.Checked ? (DateTime?)dtFromTeam.Value.Date : null;
                 DateTime? toTeam = dtToTeam.Checked ? (DateTime?)dtToTeam.Value.Date : null;
 
@@ -769,13 +767,11 @@ namespace LTTQ_G2_2025.GUI
                     return;
                 }
 
-                // Lấy dữ liệu
                 _studentsDT = StatisticsDAL.Instance.GetStudentList(fromSt, toSt);
                 _teachersDT = StatisticsDAL.Instance.GetTeacherList(fromSt, toSt);
-                _teamsDT = StatisticsDAL.Instance.GetTeamList(fromTeam, toTeam);
-                _projectsDT = StatisticsDAL.Instance.GetProjectList(fromTeam, toTeam);
+                _teamsDT = StatisticsDAL.Instance.GetTeamList(fromSt, toSt);
+                _projectsDT = StatisticsDAL.Instance.GetProjectList(fromSt, toSt);
 
-                // Hiển thị kết quả
                 int total = _studentsDT.Rows.Count + _teachersDT.Rows.Count +
                             _teamsDT.Rows.Count + _projectsDT.Rows.Count;
 

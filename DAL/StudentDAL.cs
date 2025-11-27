@@ -25,7 +25,7 @@ namespace LTTQ_G2_2025.DAL
                     s.account_id,
                     f.facultyName
                 FROM Student s
-                LEFT JOIN Class c ON c.clazz_id = s.clazz_id
+                LEFT JOIN Class c ON c.class_id = s.class_id
                 LEFT JOIN Faculty f ON f.faculty_id = c.faculty_id
                 WHERE s.account_id = @id";
 
@@ -60,9 +60,9 @@ namespace LTTQ_G2_2025.DAL
             s.account_id,
             s.phoneNumber,
             f.facultyName,
-            c.clazzName
+            c.className
         FROM Student s
-        LEFT JOIN Class c ON c.clazz_id = s.clazz_id
+        LEFT JOIN Class c ON c.class_id = s.class_id
         LEFT JOIN Faculty f ON f.faculty_id = c.faculty_id
         WHERE s.flagDelete = 0";
 
@@ -80,7 +80,7 @@ namespace LTTQ_G2_2025.DAL
                     Email = row["email"].ToString(),
                     PhoneNumber = row["phoneNumber"].ToString(),
                     facultyName = row["facultyName"].ToString(),
-                    className = row["clazzName"].ToString()
+                    className = row["className"].ToString()
                 });
             }
 
@@ -100,9 +100,9 @@ namespace LTTQ_G2_2025.DAL
                         s.account_id,
                         s.phoneNumber,
                         f.facultyName,
-                        c.clazzName
+                        c.className
                     FROM Student s
-                    LEFT JOIN Class c   ON c.clazz_id   = s.clazz_id
+                    LEFT JOIN Class c   ON c.class_id   = s.class_id
                     LEFT JOIN Faculty f ON f.faculty_id = c.faculty_id
                     WHERE s.flagDelete = 0
                       AND (
@@ -129,7 +129,7 @@ namespace LTTQ_G2_2025.DAL
                     Email = row["email"]?.ToString(),
                     PhoneNumber = row["phoneNumber"]?.ToString(),
                     facultyName = row["facultyName"]?.ToString(),
-                    className = row["clazzName"]?.ToString(),
+                    className = row["className"]?.ToString(),
                     // account_id có thể NULL → nhớ check DBNull
                     AccountId = row["account_id"] == DBNull.Value ? (long?)null : Convert.ToInt64(row["account_id"])
                 });
@@ -193,11 +193,11 @@ namespace LTTQ_G2_2025.DAL
                     INSERT INTO Student(
                         studentName, studentCode, dateOfBirth, email, phoneNumber,
                         studentGender, studentAddress, img, flagDelete,
-                        account_id, clazz_id, team_id
+                        account_id, class_id, team_id
                     ) VALUES(
                         @name, @code, @dob, @mail, @phone,
                         @gender, @addr, @img, 0,
-                        @acc, @clazz, NULL
+                        @acc, @class, NULL
                     );
                     SELECT SCOPE_IDENTITY();";
 
@@ -206,7 +206,7 @@ namespace LTTQ_G2_2025.DAL
                 s.StudentName, s.StudentCode, s.DateOfBirth, s.Email, s.PhoneNumber,
                 s.StudentGender, s.StudentAddress, s.Img ?? (object)DBNull.Value,
                 s.AccountId.HasValue ? (object)s.AccountId.Value : DBNull.Value,
-                s.ClazzId.HasValue ? (object)s.ClazzId.Value : DBNull.Value
+                s.ClassId.HasValue ? (object)s.ClassId.Value : DBNull.Value
             });
 
             if (o == null || o == DBNull.Value) throw new Exception("Thêm Student thất bại.");

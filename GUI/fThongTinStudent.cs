@@ -168,7 +168,7 @@ namespace LTTQ_G2_2025.GUI
                 PhoneNumber = txtNumber.Text.Trim(),
                 StudentAddress = txtAddress.Text.Trim(),
                 Img = imgToSave
-                // Các cột khác (Gender, FlagDelete, ClazzId, TeamId, …) không có control -> giữ nguyên (DAL sẽ không cập nhật chúng)
+                // Các cột khác (Gender, FlagDelete, ClassId, TeamId, …) không có control -> giữ nguyên (DAL sẽ không cập nhật chúng)
             };
 
             bool ok = _studentBLL.UpdateStudentBasic(dto);

@@ -45,13 +45,6 @@ namespace LTTQ_G2_2025.BLL
             return _accountDAL.GetAccountByLogin(username, password);
         }
 
-        // Lấy danh sách roles của account
-       
-
-        // Thêm role cho account
-        
-
-        // Xóa role khỏi account
        
         public List<AccountViewDTO> SearchAccounts(string emailKeyword, string roleName)
         {

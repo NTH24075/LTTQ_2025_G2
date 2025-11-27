@@ -14,7 +14,7 @@ namespace LTTQ_G2_2025.BLL
         private readonly StudentDAL _studentDAL = new StudentDAL();
         private readonly AccountDAL _accountDAL = new AccountDAL();
         private readonly RoleDAL _roleDAL = new RoleDAL();
-        private readonly ClassDAL _clazzDAL = new ClassDAL();
+        private readonly ClassDAL _classDAL = new ClassDAL();
         public StudentDetailViewDTO GetStudentByAccountId(long accountId)
         {
             return _studentDAL.GetStudentDetailByAccountId(accountId);
@@ -37,10 +37,9 @@ namespace LTTQ_G2_2025.BLL
             string phone,
             string address,
             string imageRelativePath,
-            string clazzName // người dùng nhập tên lớp, sẽ lookup ra clazz_id
+            string className 
         )
         {
-            // Validate trùng lặp
             if (_studentDAL.IsStudentCodeExists(studentCode))
                 throw new Exception("Mã sinh viên đã tồn tại.");
             if (_studentDAL.IsStudentEmailExists(email))
@@ -50,33 +49,28 @@ namespace LTTQ_G2_2025.BLL
             if (_accountDAL.EmailExists(email))
                 throw new Exception("Email này đã tồn tại trong bảng Account.");
 
-            // Lấy role_id cho ROLE_STUDENT
             int roleId = _roleDAL.GetRoleIdByName("ROLE_STUDENT");
 
-            // Tạo Account (mk mặc định 12345678)
             long accountId = _accountDAL.CreateAccount(email, "12345678", roleId);
 
-            // Tìm clazz_id
-            long clazzId = 0;
-            if (!string.IsNullOrWhiteSpace(clazzName))
-                clazzId = _clazzDAL.GetClassIdByName(clazzName);
+            long classId = 0;
+            if (!string.IsNullOrWhiteSpace(className))
+                classId = _classDAL.GetClassIdByName(className);
 
-            // Chuẩn bị DTO
             var dto = new StudentDTO
             {
                 StudentCode = studentCode,
                 StudentName = studentName,
-                DateOfBirth = dateOfBirth,      // DB của bạn để VARCHAR(50)
+                DateOfBirth = dateOfBirth,      
                 StudentGender = gender,
                 Email = email,
                 PhoneNumber = phone,
                 StudentAddress = address,
-                Img = imageRelativePath,        // ví dụ "Images\\Students\\abc.jpg"
+                Img = imageRelativePath,       
                 AccountId = accountId,
-                ClazzId = clazzId == 0 ? (long?)null : clazzId
+                ClassId = classId == 0 ? (long?)null : classId
             };
 
-            // Thêm Student
             return _studentDAL.InsertStudent(dto);
         }
     }

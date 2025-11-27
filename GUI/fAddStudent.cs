@@ -120,7 +120,7 @@ namespace LTTQ_G2_2025.GUI
                 string email = txtEmail.Text.Trim();
                 string phone = txtPhoneNumber.Text.Trim();
                 string addr = txtAddress.Text.Trim();
-                string clazzName = txtClass.Text.Trim(); // bạn thiết kế là TextBox
+                string className = txtClass.Text.Trim(); // bạn thiết kế là TextBox
 
                 bool gender = rdbMale.Checked; // true = Nam, false = Nữ
 
@@ -140,7 +140,7 @@ namespace LTTQ_G2_2025.GUI
                     phone: phone,
                     address: addr,
                     imageRelativePath: _imageRelativePath,   // có thể null
-                    clazzName: clazzName                     // có thể rỗng -> không gán lớp
+                    className: className                     // có thể rỗng -> không gán lớp
                 );
 
                 MessageBox.Show("Thêm sinh viên thành công. ID = " + newId);

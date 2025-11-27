@@ -132,11 +132,11 @@
     <Compile Include="DTO\TeacherViewDetailDTO.cs" />
     <Compile Include="DTO\TeamDTO.cs" />
     <Compile Include="DTO\TeamViewDTO.cs" />
-    <Compile Include="GUI\AddTeacher.cs">
+    <Compile Include="GUI\fAddTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\AddTeacher.Designer.cs">
-      <DependentUpon>AddTeacher.cs</DependentUpon>
+    <Compile Include="GUI\fAddTeacher.Designer.cs">
+      <DependentUpon>fAddTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fAddStudent.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\AddTeacher.resx">
-      <DependentUpon>AddTeacher.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\fAddTeacher.resx">
+      <DependentUpon>fAddTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fAddStudent.resx">
       <DependentUpon>fAddStudent.cs</DependentUpon>
@@ -202,6 +202,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fManagerAMinGUI.resx">
       <DependentUpon>fManagerAMinGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fThongTinStudent.resx">
       <DependentUpon>fThongTinStudent.cs</DependentUpon>

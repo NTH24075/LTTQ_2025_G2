@@ -13,29 +13,26 @@ namespace LTTQ_G2_2025.DAL
         public DataTable GetStudentList(DateTime? from, DateTime? to)
         {
             string sql = @"
-SELECT 
-    s.student_id      AS [ID],
-    s.studentCode     AS [Mã SV],
-    s.studentName     AS [Họ tên],
-    s.email           AS [Email],
-    s.phoneNumber     AS [SĐT],
-    c.clazzName       AS [Lớp],
-    f.facultyName     AS [Khoa],
-    CONVERT(varchar(10), xa.dob, 23) AS [Ngày sinh]
-FROM Student s
-LEFT JOIN Class   c ON c.clazz_id   = s.clazz_id
-LEFT JOIN Faculty f ON f.faculty_id = c.faculty_id
-CROSS APPLY (
-    SELECT COALESCE(
-        TRY_CONVERT(date, s.dateOfBirth, 23),
-        TRY_CONVERT(date, s.dateOfBirth, 103),
-        TRY_CONVERT(date, s.dateOfBirth, 105)
-    ) AS dob
-) xa
-WHERE 1=1
-  AND (@from IS NULL OR xa.dob >= @from)
-  AND (@to   IS NULL OR xa.dob <= @to)
-ORDER BY s.studentName;";
+            SELECT 
+                s.student_id      AS [ID],
+                s.studentCode     AS [Mã SV],
+                s.studentName     AS [Họ tên],
+                s.email           AS [Email],
+                s.phoneNumber     AS [SĐT],
+                c.className       AS [Lớp],
+                f.facultyName     AS [Khoa],
+                sem.semesterName  AS [Học kỳ]
+            FROM Student s
+            LEFT JOIN Class    c   ON c.class_id    = s.class_id
+            LEFT JOIN Faculty  f   ON f.faculty_id  = c.faculty_id
+            LEFT JOIN Team     tm  ON tm.team_id    = s.team_id
+            LEFT JOIN Project  p   ON p.project_id  = tm.project_id
+            LEFT JOIN Semester sem ON sem.semester_id = p.semester_id
+            WHERE 1=1
+              AND (@from IS NULL OR sem.startDate >= @from)
+              AND (@to   IS NULL OR sem.endDate   <= @to)
+
+            ORDER BY s.studentName;";
 
             var p = new Dictionary<string, object>
             {

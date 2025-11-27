@@ -55,7 +55,7 @@ namespace LTTQ_G2_2025.DAL
                     Img = row["img"].ToString(),
                     FlagDelete = (bool)row["flagDelete"],
                     AccountId = row["account_id"] == DBNull.Value ? (long?)null : (long)row["account_id"],
-                    ClazzId = row["clazz_id"] == DBNull.Value ? (long?)null : (long)row["clazz_id"],
+                    ClassId = row["class_id"] == DBNull.Value ? (long?)null : (long)row["class_id"],
                     TeamId = row["team_id"] == DBNull.Value ? (long?)null : (long)row["team_id"]
                 };
                 list.Add(s);
